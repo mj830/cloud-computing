@@ -18,7 +18,6 @@ with app.app_context():
 
 @app.route('/')
 def hello_world():  # put application's code here
-
     return render_template("add-dream.html")
 
 @app.route('/upload_audio', methods=['POST'])

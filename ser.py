@@ -62,7 +62,7 @@ def predict(input_file):
     # 输出预测结果
     return labels
 #
-# input_file = "audio/1001_DFA_SAD_XX.wav"
-# predict(input_file)
+input_file = "static/audio/1001_DFA_SAD_XX.wav"
+print(predict(input_file))
 # input_file2 = "audio/1+958094.wav"
 # predict(input_file2)
