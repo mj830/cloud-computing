@@ -1,0 +1,43 @@
+div.contain.flash{
+	position: absolute;
+	z-index: 999;
+	width: 40%;
+    top: 0;
+	text-align: center;
+	left: calc(50%- 20px);
+}
+.alert-info{
+	font-size: 18px;
+    font-family: 'Arial Rounded MT Bold';
+    background-image: linear-gradient(to right, #c9c6ff 0%, #9a78ff 51%, #c9c6ff 100%);
+    margin: 10px;
+    padding: 18px 26px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+
+}
+.btn-grad-close {
+background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+margin: 0px;
+padding: 5px 15px;
+text-align: center;
+text-transform: uppercase;
+transition: 0.5s;
+background-size: 200% auto;
+color: white;
+box-shadow: 0 0 20px #eee;
+border-radius: 10px;
+display: block;
+}
+
+.btn_grad-close:hover{
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}

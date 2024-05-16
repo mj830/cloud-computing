@@ -1,0 +1,474 @@
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DreamScapeInsights | Record My Dream</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/picture/logo_pic.png">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/icofont.min.css">
+    <link rel="stylesheet" href="../static/css/slick.css">
+    <link rel="stylesheet" href="../static/css/slick-theme.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/sal.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/select2.min.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/flash.css">
+    <!-- Site Stylesheet -->
+    <link rel="stylesheet" href="../static/css/app.css">
+    <link href="../static/css/css2.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/js/languages.js"></script>
+
+
+</head>
+<style>
+    .horizontal-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* 使用 flex 布局 */
+    }
+    .horizontal-list li {
+        {#border: 1px solid #000; /* 添加边框 */#}
+        margin-right: 10px; /* 间距 */
+        color: #ffffff;
+        padding: 0 10px; /* 内边距 */
+        border-radius: 7px;
+        font-weight: 600;
+        font-size: 16px;
+        width: 80px; /* 设置 li 的固定宽度 */
+        text-align: center; /* 文字居中 */
+    }
+
+#start_button {
+  border: 0;
+  background-color:transparent;
+  padding: 0;
+  cursor: pointer;
+}
+#start_img {
+  width: 50px;
+  height: 50px;
+}
+
+.btn-primary {
+  width: 100px;
+  margin: auto;
+}
+
+select {
+  padding: 5px 5px;
+}
+
+@media screen and (max-width: 767px) {
+    #select_dialect {
+      position: absolute;
+      right: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+  select {
+    margin-right: 10px;
+  }
+}
+    .form-group .nav-link {
+        color: #9a78ff;
+    }
+
+
+</style>
+
+<body class="bg-link-water">
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <a href="#wrapper" data-type="section-switch" class="scrollup">
+        <i class="icofont-bubble-up"></i>
+    </a>
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+    <div id="wrapper" class="wrapper">
+        <!-- Top Header -->
+        {% extends "common/base.html" %}
+        {% block content %}
+        <!-- Page Content -->
+        <div class="page-content">
+
+            <!--=====================================-->
+            <!--=        Newsfeed  Area Start       =-->
+            <!--=====================================-->
+            <div class="container">
+                <div class="banner-user banner-forum">
+                    <div class="banner-content">
+                        <div class="media">
+                            <div class="item-img">
+                                {% if g.user.avatar_url %}
+                                    <img src="{{ g.user.avatar_url }}" style="width: 115px; height: 115px" alt="User"  id="user-image">
+                                {% else %}
+                                    <img src="../static/upload/default_photo.jpeg" style="width: 115px; height: 115px" alt="Default" id="user-image" >
+                                {% endif %}
+                            </div>
+                            <div class="media-body">
+                                <h3 class="item-title">{{ g.user.name }}</h3>
+                                <div class="item-subtitle">{{ g.user.intro }}</div>
+                                <ul class="user-meta">
+                                    <li>Latest Emotion: <span>{{ g.latest_tag }}</span></li>
+                                    <li>Date: <span>{{ g.date }}</span></li>
+                                    <li>Dream Records: <span>{{ g.user_dream_number }}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-box user-top-header">
+                    <ul class="menu-list">
+                        <li><a href="{{ url_for('profile.homepage') }}">Home</a></li>
+                        <li><a href="{{ url_for('profile.display_profile') }}">Profile</a></li>
+                        <li class="active"><a href="#">Record</a></li>
+                        <li><a href="{{ url_for('dream.my_dream') }}">History</a></li>
+                        <li><a href="{{ url_for('activity.activity_list') }}">Activities</a></li>
+                        <li><a href="{{ url_for('analysis.display_analysis') }}">Analysis</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-8">
+
+                        <div class="block-box user-timeline-header">
+                            <ul class="menu-list d-none d-md-block" style="font-size: 18px">
+                                <li><a class="active">Record My Dreams</a></li>
+{#                                <li><a href="#">Mentions</a></li>#}
+                            </ul>
+                            <div class="header-dropdown d-md-none" style="font-size: 18px">
+                                <label>Select:</label>
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                                        Record My Dreams
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item">Record My Dreams</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-dropdown" style="font-size: 18px">
+                                <label>Select:</label>
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" id="modeOption">
+                                        Select
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" style="font-size: 18px">
+                                        <a class="dropdown-item" href="#" onclick="displayActiveContent('text')">Text Input</a>
+                                        <a class="dropdown-item" href="#" onclick="displayActiveContent('voice')">Voice Input</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="forum-topic-add" id="text">
+                            <div class="block-box">
+                                <form action="{{ url_for('dream.create') }}" method="post">
+                                    <h3>Text Input</h3>
+                                    <label>You can upload dreams through text to provide more detailed and accurate descriptions.</label>
+                                    <div class="form-group">
+                                        <label style="font-weight: bold; color:#7c7c7c;">Title </label>
+                                        <input type="text" maxlength="22" class="form-control" name="title" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight: bold; color:#7c7c7c;">Dream Content</label>
+                                        <textarea name="message" id="message" class="form-control textarea" cols="30" rows="5" required></textarea>
+                                        <button id="start_button" style="position: absolute; right: 0; border: 0; background-color:transparent; padding: 0; top:0; transform: translateY(75%);">
+                                            <img id="start_img" src="../static/gif/mic.gif" alt="Start">
+                                        </button>
+                                        <div id="language_select" style="display: flex; flex-direction: row; gap: 10px; margin-top: 20px">
+                                            <select class="select2" id="select_language"></select>
+                                            <select class="select2" id="select_dialect"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight: bold; color:#7c7c7c;">Weather</label>
+                                        <select type="text" class="form-control select2" data-placeholder="Select a Weather" name="Weather" required>
+                                            <option value="" disabled selected>Select a Weather</option>
+                                            <option value="sunny">Sunny</option>
+                                            <option value="rainy">Rainy</option>
+                                            <option value="snowy">Snowy</option>
+                                            <option value="cloudy">Cloudy</option>
+                                            <option value="overcast">Overcast</option>
+                                            <option value="extreme">Extreme</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight: bold; color:#7c7c7c;">Sleep Duration</label>
+                                        <select type="text" class="form-control select2" data-placeholder="Your Sleep Duration" name="sleepDuration" required>
+                                            <option value="" disabled selected>Select Sleep Duration</option>
+                                            <option value="less than 3">less than 3h</option>
+                                            <option value="3-4">3-4h</option>
+                                            <option value="4-5">4-5h</option>
+                                            <option value="5-6">5-6h</option>
+                                            <option value="6-7">6-7h</option>
+                                            <option value="7-8">7-8h</option>
+                                            <option value="8-9">8-9h</option>
+                                            <option value="9-10">9-10h</option>
+                                            <option value="more than 10">more than 10h</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="submit-btn" name="btn-add" value="Submit Now">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="forum-topic-add" id="voice" style="display: none;">
+                            <div class="block-box">
+                                    <h3>Voice Input</h3>
+                                    <label>You can upload dreams through voice, making input more efficient.</label>
+                                    <div class="form-group">
+                                        <label style="font-weight: bold; color:#7c7c7c;">Title</label>
+                                        <input type="text" maxlength="22" class="form-control" name="title2" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight: bold; color:#7c7c7c;">Weather</label>
+                                        <select type="text" class="form-control select2" data-placeholder="Select a Weather" name="weather2" required>
+                                            <option value="" disabled selected>Select a Weather</option>
+                                            <option value="sunny">Sunny</option>
+                                            <option value="rainy">Rainy</option>
+                                            <option value="snowy">Snowy</option>
+                                            <option value="cloudy">Cloudy</option>
+                                            <option value="overcast">Overcast</option>
+                                            <option value="extreme">Extreme</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight: bold; color:#7c7c7c;">Sleep Duration</label>
+                                        <select type="text" class="form-control select2" data-placeholder="Your Sleep Duration" name="sleepDuration2" required>
+                                            <option value="" disabled selected>Select Sleep Duration</option>
+                                            <option value="less than 3">less than 3h</option>
+                                            <option value="3-4">3-4h</option>
+                                            <option value="4-5">4-5h</option>
+                                            <option value="5-6">5-6h</option>
+                                            <option value="6-7">6-7h</option>
+                                            <option value="7-8">7-8h</option>
+                                            <option value="8-9">8-9h</option>
+                                            <option value="9-10">9-10h</option>
+                                            <option value="more than 10">more than 10h</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#record" role="tab" aria-selected="true" style="font-weight: bold">Real-time Record</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#file" role="tab" aria-selected="false" style="font-weight: bold">Upload File</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="record" role="tabpanel">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input type="button" id="startRecord" class="submit-btn" value="Start Recording">
+                                                    <input type="button" id="stopRecord" class="submit-btn" value="Stop Recording">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <audio id="audio" controls></audio>
+                                            </div>
+                                            <div id="waveformContainer">
+                                              <canvas id="waveformCanvas" style="display:none;"></canvas>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" class="submit-btn" id="uploadRecord" name="btn-add" value="Submit Now">
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="file" role="tabpanel">
+                                            <div class="form-group">
+                                                <label for="audioInput" class="submit-btn" style="color: #FFFFFF">Upload Audio</label>
+                                                <input type="file" id="audioInput" style="display: none" accept="audio/webm">
+                                            </div>
+                                            <span id="fileNameDisplay" class="file-name-display" style="font-weight: bold;display: none">No file chosen</span>
+                                            <div class="form-group">
+                                                <audio id="audioFile" controls></audio>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" class="submit-btn" id="fileSubmit" name="btn-add" value="Submit Now">
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 widget-block widget-break-lg">
+                        <div class="widget widget-comment">
+                            <div class="widget-heading">
+                                <h3 class="widget-title" style="font-size: 18px">Recently Launched Activities</h3>
+                                <div class="dropdown">
+{#                                    <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">#}
+{#                                        ...#}
+{#                                    </button>#}
+{#                                    <div class="dropdown-menu dropdown-menu-right">#}
+{#                                        <a class="dropdown-item" href="#">Close</a>#}
+{#                                        <a class="dropdown-item" href="#">Edit</a>#}
+{#                                        <a class="dropdown-item" href="#">Delete</a>#}
+{#                                    </div>#}
+                                </div>
+                            </div>
+                            <div class="group-list">
+                                {% for post in activities %}
+                                <div class="media">
+                                    <div class="item-img">
+                                        <a href="{{post.link}}">
+                                            <img src="{{post.photo}}" style="width: 100px; height: 80px" alt="post">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="post-date" style="font-size: 13px">{{ post.classsification }}</div>
+                                        <h4 class="item-title" style="font-size: 18px"><a href="{{ post.link }}">{{ post.activity }}</a></h4>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% if last_dreams %}
+                        <div class="widget widget-groups">
+                            <div class="widget-heading">
+                                <h3 class="widget-title" style="font-size: 18px">My Historical Dream Records</h3>
+                                <div class="dropdown">
+{#                                    <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">#}
+{#                                        ...#}
+{#                                    </button>#}
+{#                                    <div class="dropdown-menu dropdown-menu-right">#}
+{#                                        <a class="dropdown-item" href="#">Close</a>#}
+{#                                        <a class="dropdown-item" href="#">Edit</a>#}
+{#                                        <a class="dropdown-item" href="#">Delete</a>#}
+{#                                    </div>#}
+                                </div>
+                            </div>
+                            <div class="group-list">
+                                {% for post in last_dreams %}
+                                <div class="media">
+                                    {% if post.tag == 'happy' %}
+                                    <div class="item-img bg-tagerine-gradient" style="height: 50px; width: 50px; border-radius: 50%">
+                                        <a href="{{ url_for('dream.my_dream') }}" onclick="setActiveEmotion('happy')">
+                                            <img src="../static/gif/happy.gif" alt="group">
+                                        </a>
+                                    </div>
+                                    {% elif post.tag == 'neutral' %}
+                                    <div class="item-img bg-sun-gradient" style="height: 50px; width: 50px; border-radius: 50%">
+                                        <a href="{{ url_for('dream.my_dream') }}" onclick="setActiveEmotion('neutral')">
+                                            <img src="../static/gif/neutral.gif" alt="group">
+                                        </a>
+                                    </div>
+                                    {% elif post.tag == 'sad' %}
+                                    <div class="item-img bg-picton-gradient" style="height: 50px; width: 50px; border-radius: 50%">
+                                        <a href="{{ url_for('dream.my_dream') }}" onclick="setActiveEmotion('sad')">
+                                            <img src="../static/gif/sad.gif" alt="group">
+                                        </a>
+                                    </div>
+                                    {% elif post.tag == 'fear' %}
+                                    <div class="item-img bg-gray-gradient" style="height: 50px; width: 50px; border-radius: 50%">
+                                        <a href="{{ url_for('dream.my_dream') }}" onclick="setActiveEmotion('fear')">
+                                            <img src="../static/gif/fear.gif" alt="group">
+                                        </a>
+                                    </div>
+                                    {% elif post.tag == 'angry' %}
+                                    <div class="item-img bg-pink-gradient" style="height: 50px; width: 50px; border-radius: 50%">
+                                        <a href="{{ url_for('dream.my_dream') }}" onclick="setActiveEmotion('angry')">
+                                            <img src="../static/gif/anger.gif" alt="group">
+                                        </a>
+                                    </div>
+                                    {% endif %}
+                                    <div class="media-body">
+                                        <h4 class="item-title"><a href="{{ url_for('dream.check_dream',dream_id=post.id) }}" style="font-size: 16px">{{ post.title }}</a></h4>
+                                        <div class="item-body" >
+                                            <ul class="horizontal-list">
+                                                {% if post.tag == 'happy' %}
+                                                    <li style="background: #FACA82">{{ post.tag }}</li>
+                                                {% elif post.tag == 'neutral' %}
+                                                    <li style="background: #a7de8f">{{ post.tag }}</li>
+                                                {% elif post.tag == 'sad' %}
+                                                    <li style="background: #9DD6FF">{{ post.tag }}</li>
+                                                {% elif post.tag == 'fear' %}
+                                                    <li style="background: #C9C6FF">{{ post.tag }}</li>
+                                                {% elif post.tag == 'angry' %}
+                                                    <li style="background: #FF8686">{{ post.tag }}</li>
+                                                {% endif %}
+                                                <li style="background: #7CCBFF">{{ post.whether }}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="see-all-btn">
+                                <a href="{{ url_for('dream.my_dream') }}" onclick="setActiveEmotion('all')" class="item-btn">See All Records</a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- Chat Modal Here -->
+        <div class="chat-conversion-box" id="chat-box-modal" tabindex="-1" aria-labelledby="chat-modal-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="chat-modal-label">Fahim Rahman <span class="online"></span></h6>
+                        <div class="action-icon">
+                            <button class="chat-shrink"><i class="icofont-minus"></i></button>
+                            <button type="button" class="close chat-close chat-open" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="chat-conversion">
+                            <li class="chat-others">
+                                <div class="author-img">
+                                    <img src="../static/picture/chat_12.jpg" alt="Chat">
+                                </div>
+                                <div class="author-text">
+                                    <span>How are you Fahim vai ? Tommorow office will be your last day of Bachelor life.</span>
+                                </div>
+                            </li>
+                            <li class="chat-you">
+                                <div class="author-img">
+                                    <img src="../static/picture/chat_11.jpg" alt="Chat">
+                                </div>
+                                <div class="author-text">
+                                    <span>hmm That's great</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Write your text here.....">
+                                <div class="chat-plus-icon"><i class="icofont-plus-circle"></i></div>
+                                <div class="file-attach-icon">
+                                    <a href="#"><i class="icofont-slightly-smile"></i></a>
+                                    <a href="#"><i class="icofont-camera"></i></a>
+                                    <a href="#"><i class="icofont-image"></i></a>
+                                    <a href="#"><i class="icofont-mic"></i></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+</body>
+

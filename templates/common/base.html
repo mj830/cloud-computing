@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% block css %}
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/icofont.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/slick.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/slick-theme.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/magnific-popup.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/sal.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ url_for('static', filename='css/select2.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/css2.css') }}" rel="stylesheet">
+        <link rel="shortcut icon" href="../static/picture/favicon.png" />
+
+        {% endblock %}
+    </head>
+
+    <body>
+        {% include "common/header.html" %}<!--Introduce header templates for web pages-->
+
+                {% block content %}<!--Customize the template area-->
+
+                {% endblock %}
+           <!--/row-->
+
+        </div>
+
+        {% include "common/footer.html" %}<!--Introduce the bottom templates of the web page-->
+        {% block js %}
+
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/slick.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/sal.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/validator.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/audio.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/upload_mode.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/web-speech-api.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/pie.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/histogram.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/file_upload.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/announcement.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
+
+
+
+

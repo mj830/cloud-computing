@@ -1,0 +1,68 @@
+<footer class="footer-wrap footer-dashboard">
+                 <div class="main-footer">
+                <div class="container">
+                    <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1">
+                        <div class="col">
+                            <div class="footer-box">
+                                <div class="footer-logo">
+                                    <a href="{{ url_for('back_to_home') }}"><img src="/static/picture/Logo_Dark_1.png" alt="Logo"></a>
+                                </div>
+                                <p>Record and save your dreams, and get in-depth interpretations and personalized activity recommendations with our unique analysis tools.</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-lg-center">
+                            <div class="footer-box">
+                                <h3 class="footer-title">
+                                    Important Links
+                                </h3>
+                                <div class="footer-link">
+                                    <ul>
+                                        <li><a href="{{ url_for('back_to_home') }}">Home</a></li>
+                                        <li><a href="{{ url_for('about') }}">About us</a></li>
+                                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-lg-center">
+                            <div class="footer-box">
+                                <h3 class="footer-title">
+                                    Dream
+                                </h3>
+                                <div class="footer-link">
+                                    <ul>
+                                        <li><a href="{{ url_for('dream.create') }}">Record Dream</a></li>
+                                        <li><a href="{{ url_for('dream.my_dream') }}">My Dream History</a></li>
+                                        <li><a href="{{ url_for('activity.activity_list') }}">All Recommended Activities</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-lg-center">
+                            <div class="footer-box">
+                                <h3 class="footer-title">
+                                    Mine
+                                </h3>
+                                <div class="footer-link">
+                                    <ul>
+                                        <li>
+                                    <a href="{{ url_for('profile.homepage') }}">Personal Homepage</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('profile.display_profile') }}">My Profile</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('analysis.display_analysis') }}">Visualization Analysis</a>
+                                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="footer-bottom">
+                <div class="footer-copyright">DreamScapeInsights 2024. All Rights By Group 6 Yumekui</div>
+            </div>
+</footer>
