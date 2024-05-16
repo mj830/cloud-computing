@@ -3,26 +3,26 @@
         <div class="navbar">
             <div class="nav-item d-none d-sm-block">
                 <div class="header-logo">
-                    <a href="{{ url_for('back_to_home') }}"><img src="/static/picture/logo_minimini.png" alt="Cirkle"></a>
+                    <a><img src="/static/picture/logo_minimini.png" alt="Cirkle"></a>
                 </div>
             </div>
             <div class="nav-item nav-top-menu">
                 <nav id="dropdown" class="template-main-menu">
                     <ul class="menu-content">
                         <li class="header-nav-item">
-                            <a href="{{ url_for('back_to_home') }}" class="menu-link active">Home</a>
+                            <a class="menu-link active">Home</a>
                         </li>
                         <li class="header-nav-item">
-                            <a href="#" class="menu-link have-sub">Dream</a>
+                            <a class="menu-link have-sub">Dream</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="{{ url_for('dream.create') }}">Record Dream</a>
+                                    <a>Record Dream</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url_for('dream.my_dream') }}">My Dream History</a>
+                                    <a>My Dream History</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url_for('activity.activity_list') }}">All Recommended Activities</a>
+                                    <a>All Recommended Activities</a>
                                 </li>
                             </ul>
                         </li>
@@ -30,13 +30,13 @@
                             <a href="#" class="menu-link have-sub">Mine</a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="{{ url_for('profile.homepage') }}">Personal Homepage</a>
+                                    <a>Personal Homepage</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url_for('profile.display_profile') }}">My Profile</a>
+                                    <a>My Profile</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url_for('analysis.display_analysis') }}">Visualization Analysis</a>
+                                    <a>Visualization Analysis</a>
                                 </li>
                             </ul>
                         </li>
@@ -54,17 +54,15 @@
 <!--                </div>-->
 
                     <div class="inline-item d-none d-md-block">
-                        <form action="{{ url_for('dream.search') }}" id="search_form" method="post" style="margin-block-end: 0">
                         <div class="input-group">
                             <input type="text" name="search" class="form-control" placeholder="Search here.......">
                             <div class="input-group-append">
                                 <button class="submit-btn" type="submit"><i class="icofont-search"></i></button>
                             </div>
                         </div>
-                        </form>
                     </div>
                 <div class="inline-item d-flex align-items-center">
-                    <a href="#" style="color: white"><i class="icofont-phone"> 182 - 3120 - 8888</i></a>
+                    <a style="color: white"><i class="icofont-phone"> 182 - 3120 - 8888</i></a>
                     <!--
                     <div class="dropdown dropdown-cart">
                         <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
@@ -286,26 +284,22 @@
                         <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
                             <span class="media">
                                 <span class="item-img">
-                                    {% if g.user.avatar_url %}
-                                    <img src="{{ g.user.avatar_url }}" style="width: 44px; height: 44px" alt="Chat">
-                                    {% else %}
-                                    <img src="/static/upload/default_photo.jpeg" style="width: 44px; height: 44px" alt="Chat">
-                                    {% endif %}
+                                    <img src="/static/picture/chiikawa.jpg" style="width: 44px; height: 44px" alt="Chat">
                                     <span class="acc-verified"><i class="icofont-check"></i></span>
                                 </span>
                                 <span class="media-body">
-                                    <span class="item-title">{{ g.user.name }}</span>
+                                    <span class="item-title">Yumekui</span>
                                 </span>
                             </span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <ul class="admin-options">
-                                <li><a href="{{ url_for('profile.display_profile') }}">Profile Setting</a></li>
-                                <li><a href="{{ url_for('policy') }}">Private Policy</a></li>
-                                <li><a href="{{ url_for('Service') }}">Terms of Service</a></li>
-                                <li><a href="{{ url_for('about') }}">About Us</a></li>
-                                <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                                <li><a href="{{ url_for('user.logout') }}">Log Out</a></li>
+                                <li><a>Profile Setting</a></li>
+                                <li><a>Private Policy</a></li>
+                                <li><a>Terms of Service</a></li>
+                                <li><a>About Us</a></li>
+                                <li><a>Contact</a></li>
+                                <li><a>Log Out</a></li>
                             </ul>
                         </div>
                     </div>
@@ -326,11 +320,11 @@
         <div class="sidebar-menu-wrap">
             <div class="mCustomScrollbar" data-mcs-theme="dark" data-mcs-axis="y">
                 <ul class="side-menu">
-                    <li><a href="{{ url_for('profile.homepage') }}" class="menu-link" data-toggle="tooltip" data-placement="right" title="PERSONAL HOMEPAGE"><i class="icofont-newspaper"></i></a></li>
-                    <li><a href="{{ url_for('dream.create') }}" class="menu-link" data-toggle="tooltip" data-placement="right" title="RECORD DREAM"><i class="icofont-list"></i></a></li>
-                    <li><a href="{{ url_for('dream.my_dream') }}" class="menu-link" data-toggle="tooltip" data-placement="right" title="DREAM HISTORY"><i class="icofont-history"></i></a></li>
-                    <li><a href="{{ url_for('activity.activity_list') }}" class="menu-link" data-toggle="tooltip" data-placement="right" title="RECOMMENDED ACTIVITIES"><i class="icofont-result-sport"></i></a></li>
-                    <li><a href="{{ url_for('analysis.display_analysis') }}" class="menu-link" data-toggle="tooltip" data-placement="right" title="VISUALIZATION ANALYSIS"><i class="icofont-chart-histogram"></i></a></li>
+                    <li><a class="menu-link" data-toggle="tooltip" data-placement="right" title="PERSONAL HOMEPAGE"><i class="icofont-newspaper"></i></a></li>
+                    <li><a class="menu-link" data-toggle="tooltip" data-placement="right" title="RECORD DREAM"><i class="icofont-list"></i></a></li>
+                    <li><a class="menu-link" data-toggle="tooltip" data-placement="right" title="DREAM HISTORY"><i class="icofont-history"></i></a></li>
+                    <li><a class="menu-link" data-toggle="tooltip" data-placement="right" title="RECOMMENDED ACTIVITIES"><i class="icofont-result-sport"></i></a></li>
+                    <li><a class="menu-link" data-toggle="tooltip" data-placement="right" title="VISUALIZATION ANALYSIS"><i class="icofont-chart-histogram"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -338,7 +332,7 @@
     <div class="fixed-sidebar-left large-sidebar">
         <div class="sidebar-toggle">
             <div class="sidebar-logo">
-                <a href="{{ url_for('back_to_home') }}"><img src="/static/picture/Logo_mini.png" alt="Logo"></a>
+                <a><img src="/static/picture/Logo_mini.png" alt="Logo"></a>
             </div>
             <button class="toggle-btn toggler-close">
                 <span></span>
@@ -349,11 +343,11 @@
         <div class="sidebar-menu-wrap">
             <div class="mCustomScrollbar" data-mcs-theme="dark" data-mcs-axis="y">
                 <ul class="side-menu">
-                    <li><a href="{{ url_for('profile.homepage') }}" class="menu-link"><i class="icofont-newspaper"></i><span class="menu-title">Personal Homepage</span></a></li>
-                    <li><a href="{{ url_for('dream.create') }}" class="menu-link"><i class="icofont-list"></i><span class="menu-title">Record Dreams</span></a></li>
-                    <li><a href="{{ url_for('dream.my_dream') }}" class="menu-link"><i class="icofont-history"></i><span class="menu-title">Dream History</span></a></li>
-                    <li><a href="{{ url_for('activity.activity_list') }}" class="menu-link"><i class="icofont-result-sport"></i><span class="menu-title">Recommended Activities</span></a></li>
-                    <li><a href="{{ url_for('analysis.display_analysis') }}" class="menu-link"><i class="icofont-chart-histogram"></i><span class="menu-title">Visualization Analysis</span></a></li>
+                    <li><a class="menu-link"><i class="icofont-newspaper"></i><span class="menu-title">Personal Homepage</span></a></li>
+                    <li><a class="menu-link"><i class="icofont-list"></i><span class="menu-title">Record Dreams</span></a></li>
+                    <li><a class="menu-link"><i class="icofont-history"></i><span class="menu-title">Dream History</span></a></li>
+                    <li><a class="menu-link"><i class="icofont-result-sport"></i><span class="menu-title">Recommended Activities</span></a></li>
+                    <li><a class="menu-link"><i class="icofont-chart-histogram"></i><span class="menu-title">Visualization Analysis</span></a></li>
                 </ul>
 
             </div>
@@ -365,7 +359,7 @@
 <div class="fixed-sidebar right">
     <div class="fixed-sidebar-right small-sidebar">
         <div class="sidebar-toggle" id="chat-head-toggle">
-            <a href="{{ url_for('contact') }}">
+            <a>
             <button class="chat-icon">
                 <i class="icofont-speech-comments"></i>
             </button>
