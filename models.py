@@ -12,7 +12,7 @@ class DreamModel(db.Model):
     tag = db.Column(db.String(100), nullable=False)
 
     # create_time = db.Column(db.DateTime, default=datetime.now().replace(second=0, microsecond=0))
-    create_time = db.Column(db.String(100), nullable=False)
+    run_time = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
         return '<Dream %r>' % self.title

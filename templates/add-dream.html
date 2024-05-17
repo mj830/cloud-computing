@@ -118,10 +118,10 @@
                             <div class="block-box">
                                     <h3>Voice Input</h3>
                                     <label>You can upload dreams through voice, making input more efficient.</label>
-                                    <form action="{{ url_for('dream.create') }}" method="post">
+                                    <form action="{{ url_for('upload_audio') }}" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="audioInput" class="submit-btn" style="color: #FFFFFF">Upload Audio</label>
-                                        <input type="file" id="audioInput" style="display: none" accept="audio/webm" multiple>
+                                        <input type="file" name="audio" id="audioInput" style="display: none" accept="audio/webm" multiple>
                                     </div>
                                     <span id="fileNameDisplay" class="file-name-display" style="font-weight: bold;display: none">No file chosen</span>
                                     <div class="form-group">
