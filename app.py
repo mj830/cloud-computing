@@ -1,5 +1,7 @@
 import random
 import string
+import logging
+import psutil
 
 from flask import Flask, request, g, render_template, redirect, url_for
 from future.moves import subprocess
@@ -12,6 +14,11 @@ import time
 
 import os
 import shutil
+from logging.handlers import RotatingFileHandler
+
+# 配置日志记录器
+# logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+file_handler = RotatingFileHandler(filename='app.log', maxBytes=10000, backupCount=1)
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -20,9 +27,12 @@ with app.app_context():
     db.drop_all()
     db.create_all()
 
+# 配置日志处理器
+app.logger.addHandler(file_handler)
 
 @app.route('/')
 def hello_world():  # put application's code here
+    logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
     return render_template("add-dream.html")
 
 @app.route('/upload_audio', methods=['POST'])
@@ -34,9 +44,11 @@ def upload_audio():
     if not audio_files:
         return 'No file is uploaded', 400
 
+    # 记录整体开始时间
+    start_time_general = time.time()
+
     for audio_file in audio_files:
         print(audio_file)
-        start_time = time.time()  # 开始计时
 
         filename = audio_file.filename
         random_string = generate_random_string(12)
@@ -48,15 +60,36 @@ def upload_audio():
         # 将.webm文件转换为.wav文件
         convert_webm_to_wav(input_file, output_file)
 
+        start_time = time.time()  # 开始计时
+        # 记录预测开始时的CPU利用率
+        cpu_before = psutil.cpu_percent(interval=None)
+        memory_before = psutil.virtual_memory().used / (1024 * 1024)  # 将内存使用量转换为MB
+
         # 使用ser.py的predict方法获取情绪标签
         predicted_labels = predict(output_file)
-        tag = predicted_labels[0]  # 假设我们只关心第1个预测结果
+
+        # 记录预测结束时的CPU利用率
+        cpu_after = psutil.cpu_percent(interval=None)
+        memory_after = psutil.virtual_memory().used / (1024 * 1024)  # 将内存使用量转换为MB
+
+        app.logger.info(f"CPU utilization before prediction: {cpu_before}%")
+        app.logger.info(f"CPU utilization after prediction: {cpu_after}%")
+        app.logger.info(f"Memory usage before prediction: {memory_before} MB")
+        app.logger.info(f"Memory usage after prediction: {memory_after} MB")
 
         end_time = time.time()  # 结束计时
         execution_time = end_time - start_time
+        app.logger.info(f"Execution time: {execution_time} seconds")  # 记录性能
+
+        tag = predicted_labels[0]  # 假设我们只关心第1个预测结果
 
         dream = DreamModel(audio=filename, tag=tag, run_time=execution_time)
         db.session.add(dream)
+
+    # 记录整体结束时间
+    end_time_general = time.time()  # 结束计时
+    execution_time_general = end_time_general - start_time_general
+    app.logger.info(f"----- [ --- General Execution time: {execution_time_general} seconds --- ] -----")  # 记录性能
 
     db.session.commit()
 
@@ -96,7 +129,7 @@ def generate_random_string(length):
 
 def clear_folder(folder_path):
     if not os.path.exists(folder_path):
-        print(f"The folder {folder_path} does not exist.")
+        app.logger.warning(f"The folder {folder_path} does not exist.")  # 记录警告
         return
 
     for filename in os.listdir(folder_path):
@@ -107,9 +140,10 @@ def clear_folder(folder_path):
             elif os.path.isdir(file_path):
                 shutil.rmtree(file_path)
         except Exception as e:
-            print(f"Failed to delete {file_path}. Reason: {e}")
+            app.logger.error(f"Failed to delete {file_path}. Reason: {e}")  # 记录错误
 
 if __name__ == '__main__':
     app.run()
+
 
 
