@@ -16,14 +16,11 @@
     <link rel="stylesheet" href="../static/css/magnific-popup.css">
     <link rel="stylesheet" href="../static/css/sal.css" type="text/css">
     <link rel="stylesheet" href="../static/css/select2.min.css" type="text/css">
-    <link rel="stylesheet" href="../static/css/flash.css">
     <!-- Site Stylesheet -->
     <link rel="stylesheet" href="../static/css/app.css">
     <link href="../static/css/css2.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../static/js/upload_mode.js"></script>
-
 </head>
 
 <body class="bg-link-water">
@@ -58,11 +55,6 @@
                             <div class="media-body">
                                 <h3 class="item-title">Yumekui</h3>
                                 <div class="item-subtitle">Only for cloud computing</div>
-{#                                <ul class="user-meta">#}
-{#                                    <li>Latest Emotion: <span>none</span></li>#}
-{#                                    <li>Date: <span>{{ g.date }}</span></li>#}
-{#                                    <li>Dream Records: <span>{{ g.user_dream_number }}</span></li>#}
-{#                                </ul>#}
                             </div>
                         </div>
                     </div>
@@ -84,7 +76,6 @@
                         <div class="block-box user-timeline-header">
                             <ul class="menu-list d-none d-md-block" style="font-size: 18px">
                                 <li><a class="active">My Dreams History</a></li>
-                                {#                                <li><a href="#">Mentions</a></li>#}
                             </ul>
                             <div class="header-dropdown d-md-none">
                                 <label>Select:</label>
@@ -100,65 +91,19 @@
                             </div>
                             <div class="header-dropdown" style="font-size: 18px">
                                 <label style="color: #0b0b0b">All Emotions</label>
-                                <div class="dropdown">
-{#                                    <button class="dropdown-toggle" type="button" data-toggle="dropdown"#}
-{#                                            aria-expanded="false" id="selectedOption">#}
-{#                                        All Emotions#}
-{#                                    </button>#}
-{#                                    <div class="dropdown-menu dropdown-menu-right" style="font-size: 18px">#}
-{#                                        <a class="dropdown-item" href="#" onclick="setActiveEmotion('all')">All#}
-{#                                            Emotions</a>#}
-{#                                        <a class="dropdown-item" href="#" onclick="setActiveEmotion('happy')">Happy</a>#}
-{#                                        <a class="dropdown-item" href="#"#}
-{#                                           onclick="setActiveEmotion('neutral')">Neutral</a>#}
-{#                                        <a class="dropdown-item" href="#" onclick="setActiveEmotion('sad')">Sad</a>#}
-{#                                        <a class="dropdown-item" href="#" onclick="setActiveEmotion('fear')">Fear</a>#}
-{#                                        <a class="dropdown-item" href="#" onclick="setActiveEmotion('angry')">Angry</a>#}
-{#                                    </div>#}
-                                </div>
                             </div>
                         </div>
-
-                        <div id="all">
                             {% for post in pagination.items %}
                                 <div class="block-box post-view">
                                     <div class="post-header">
                                         <div class="media">
                                             <div class="media-body">
-                                                <div class="user-title"><h3><a
-                                                        href="{{ url_for('dream.check_dream',dream_id=post.id) }}">{{ post.title }}</a>
-                                                </h3>
                                                 </div>
-                                                <ul class="entry-meta">
-                                                    <i class="icofont-wink-smile"></i>
-                                                    <li class="meta-time">{{ post.create_time }}</li>
-                                                </ul>
                                             </div>
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="button"
-                                               href="{{ url_for('dream.delete',dream_id=post.id) }}">X</a>
-
-                                            <!--
-                                            <button  type="button" style="width: 80px; height: 80px;  border: none;background-color:transparent;"><img src="../static/image/delete.gif" alt="User"></button>
-                                            <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                                ...
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Delete</a>
-                                            </div>
-                                            !-->
-                                        </div>
                                     </div>
                                     <div class="post-body">
-                                        {% if post.audio is none %}
-                                            <p style="font-size:18px;">{{ post.content }}</p>
-                                            <p></p>
-                                        {% else %}
-                                            <audio id="audio" controls src="/{{ post.audio }}"></audio>
-                                            <p></p>
-                                        {% endif %}
+                                        <p style="font-size:20px;">Your Upload File: {{ post.content }}</p>
+                                        <p></p>
                                     </div>
                                     <div class="post-footer">
                                         <ul>
@@ -182,18 +127,8 @@
                                             </li>
                                             <li class="post-share">
                                                 <a class="share-btn" style="font-size:16px;"><i
-                                                        class="icofont-ui-weather"></i>{{ post.whether }}</a>
+                                                        class="icofont-clock-time"></i>running time</a>
                                             </li>
-                                            <li class="post-share" style="font-size:16px;">
-                                               {% if post.sleep =='<3' %}
-                                                <i class="icofont-bed"></i> less than 3
-                                                {% elif post.sleep =='>10'%}
-                                                <i class="icofont-bed"></i> more than 10
-                                                {% else %}
-                                                <i class="icofont-bed"></i> {{ post.sleep }}
-                                                {% endif %}
-                                            </li>
-
                                         </ul>
                                     </div>
                                 </div>
@@ -201,11 +136,9 @@
                             {% if pagination.total > 0 %}
                             <div class="pagination">
                                 {{ macros.pagination_widget(pagination, '.my_dream',page_arg='page_all') }}
-                                {#                                 {{ macros.pagination_widget(pagination, '.my_dream') }}#}
+                                                                 {{ macros.pagination_widget(pagination, '.my_dream') }}
                             </div>
                             {% endif %}
-                        </div>
-
                     </div>
                 </div>
 
@@ -226,7 +159,6 @@
 <script src="../static/js/jquery.magnific-popup.min.js"></script>
 <script src="../static/js/validator.min.js"></script>
 <script src="../static/js/select2.min.js"></script>
-<script src="../static/js/audio.js"></script>
 
 <!-- Site Scripts -->
 <script src="../static/js/app.js"></script>
