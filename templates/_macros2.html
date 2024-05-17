@@ -1,0 +1,44 @@
+{% macro pagination_widget(pagination, endpoint, page_arg='page', dream_id='dream_id') %}
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="pagination text-center">
+                <ul class="pagination-list">
+                    <!-- First page link -->
+                    {% if pagination.page == 1 %}
+                        <li class="active"><a href="{{ url_for(endpoint, **{page_arg: 1, 'dream_id': dream_id}) }}">First</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for(endpoint, **{page_arg: 1, 'dream_id': dream_id}) }}">First</a></li>
+                    {% endif %}
+
+                    <!-- Conditional ellipsis before the current page when necessary -->
+                    {% if pagination.page > 2 %}
+                        <li><span>&hellip;</span></li>
+                    {% endif %}
+
+                    <!-- Generate page numbers around the current page -->
+                    {% set start_page = pagination.page - 1 if pagination.page > 1 else pagination.page %}
+                    {% set end_page = pagination.page + 1 if pagination.page < pagination.pages else pagination.page %}
+                    {% for p in range(start_page, end_page + 1) %}
+                        {% if p == pagination.page %}
+                            <li class="active"><a href="{{ url_for(endpoint, **{page_arg: p, 'dream_id': dream_id}) }}">{{ p }}</a></li>
+                        {% else %}
+                            <li><a href="{{ url_for(endpoint, **{page_arg: p, 'dream_id': dream_id}) }}">{{ p }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    <!-- Conditional ellipsis after the current page when necessary -->
+                    {% if pagination.page < pagination.pages - 1 %}
+                        <li><span>&hellip;</span></li>
+                    {% endif %}
+
+                    <!-- Last page link -->
+                    {% if pagination.page == pagination.pages %}
+                        <li class="active"><a href="{{ url_for(endpoint, **{page_arg: pagination.pages, 'dream_id': dream_id}) }}">Last</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for(endpoint, **{page_arg: pagination.pages, 'dream_id': dream_id}) }}">Last</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

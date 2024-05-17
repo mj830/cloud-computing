@@ -126,7 +126,7 @@ select {
                         <li><a>Home</a></li>
                         <li><a>Profile</a></li>
                         <li class="active"><a>Record</a></li>
-                        <li><a>History</a></li>
+                        <li><a href="">History</a></li>
                         <li><a>Activities</a></li>
                         <li><a>Analysis</a></li>
                         <li></li>
@@ -169,14 +169,16 @@ select {
                             <div class="block-box">
                                     <h3>Voice Input</h3>
                                     <label>You can upload dreams through voice, making input more efficient.</label>
+                                    <form action="{{ url_for('dream.create') }}" method="post">
                                     <div class="form-group">
                                         <label for="audioInput" class="submit-btn" style="color: #FFFFFF">Upload Audio</label>
-                                        <input type="file" id="audioInput" style="display: none" accept="audio/webm">
+                                        <input type="file" id="audioInput" style="display: none" accept="audio/webm" multiple>
                                     </div>
                                     <span id="fileNameDisplay" class="file-name-display" style="font-weight: bold;display: none">No file chosen</span>
                                     <div class="form-group">
                                         <input type="submit" class="submit-btn" id="fileSubmit" name="btn-add" value="Submit Now">
                                     </div>
+                                    </form>
                             </div>
                         </div>
                     </div>
