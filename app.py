@@ -10,6 +10,9 @@ from models import DreamModel
 from ser import predict
 import time
 
+import os
+import shutil
+
 app = Flask(__name__)
 app.config.from_object(config)
 db.init_app(app)
@@ -57,6 +60,9 @@ def upload_audio():
 
     db.session.commit()
 
+    folder_to_clear = 'static/audio'
+    clear_folder(folder_to_clear)
+
     return redirect(url_for("my_dream"))
 
 def convert_webm_to_wav(input_file, output_file):
@@ -87,6 +93,21 @@ def my_dream():
 def generate_random_string(length):
     letters = string.ascii_letters + string.digits  # 包含字母和数字
     return ''.join(random.choice(letters) for _ in range(length))
+
+def clear_folder(folder_path):
+    if not os.path.exists(folder_path):
+        print(f"The folder {folder_path} does not exist.")
+        return
+
+    for filename in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print(f"Failed to delete {file_path}. Reason: {e}")
 
 if __name__ == '__main__':
     app.run()
