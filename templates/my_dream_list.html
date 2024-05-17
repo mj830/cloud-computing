@@ -63,7 +63,7 @@
                     <ul class="menu-list">
                         <li><a>Home</a></li>
                         <li><a>Profile</a></li>
-                        <li><a href="">Record</a></li>
+                        <li><a href="{{ url_for('hello_world') }}">Record</a></li>
                         <li class="active"><a>History</a></li>
                         <li><a>Activities</a></li>
                         <li><a>Analysis</a></li>
@@ -136,7 +136,6 @@
                             {% if pagination.total > 0 %}
                             <div class="pagination">
                                 {{ macros.pagination_widget(pagination, '.my_dream',page_arg='page_all') }}
-                                                                 {{ macros.pagination_widget(pagination, '.my_dream') }}
                             </div>
                             {% endif %}
                     </div>

@@ -1,4 +1,5 @@
-from random import random
+import random
+import string
 
 from flask import Flask, request, g, render_template, redirect, url_for
 from future.moves import subprocess
@@ -35,8 +36,9 @@ def upload_audio():
         start_time = time.time()  # 开始计时
 
         filename = audio_file.filename
-        input_file = "static/audio/" + filename
-        output_file = "static/audio/" + filename
+        random_string = generate_random_string(12)
+        input_file = "static/audio/" + filename + "+" + random_string
+        output_file = "static/audio/" + filename + "+" + random_string +".wav"
 
         audio_file.save(input_file)
 
@@ -81,6 +83,10 @@ def my_dream():
     dreams = DreamModel.query.filter_by().paginate(page=page_all, per_page=4)
 
     return render_template("my_dream_list.html", dreams=dreams, pagination=dreams)
+
+def generate_random_string(length):
+    letters = string.ascii_letters + string.digits  # 包含字母和数字
+    return ''.join(random.choice(letters) for _ in range(length))
 
 if __name__ == '__main__':
     app.run()
