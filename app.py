@@ -20,6 +20,16 @@ from logging.handlers import RotatingFileHandler
 # logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 file_handler = RotatingFileHandler(filename='app.log', maxBytes=10000, backupCount=1)
 
+# 配置日志记录器
+# file_handler = RotatingFileHandler(filename='app.log', maxBytes=10000, backupCount=1)
+# formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+# file_handler.setFormatter(formatter)
+
+# 获取根日志记录器并添加处理器
+# logging.getLogger().setLevel(logging.INFO)
+# logging.getLogger().addHandler(file_handler)
+
+
 app = Flask(__name__)
 app.config.from_object(config)
 db.init_app(app)
@@ -46,6 +56,9 @@ def upload_audio():
 
     # 记录整体开始时间
     start_time_general = time.time()
+
+    number = len(audio_files)
+    print(number)
 
     for audio_file in audio_files:
         print(audio_file)
@@ -89,7 +102,7 @@ def upload_audio():
     # 记录整体结束时间
     end_time_general = time.time()  # 结束计时
     execution_time_general = end_time_general - start_time_general
-    app.logger.info(f"----- [ --- General Execution time: {execution_time_general} seconds --- ] -----")  # 记录性能
+    app.logger.info(f"----- [ --- General Execution time for {number} files: {execution_time_general} seconds --- ] -----")  # 记录性能
 
     db.session.commit()
 

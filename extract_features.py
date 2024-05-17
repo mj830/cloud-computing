@@ -1,20 +1,6 @@
 import librosa
 import numpy as np
 
-def noise(data):
-    noise_amp = 0.035 * np.random.uniform() * np.amax(data)
-    data = data + noise_amp * np.random.normal(size=data.shape[0])
-    return data
-
-def stretch(data, rate=0.8):
-    return librosa.effects.time_stretch(data, rate=rate)
-
-def shift(data):
-    shift_range = int(np.random.uniform(low=-5, high=5) * 1000)
-    return np.roll(data, shift_range)
-
-def pitch(data, sampling_rate, n_steps=4):
-    return librosa.effects.pitch_shift(data, sr=sampling_rate, n_steps=n_steps)
 
 def extract_features(data, sample_rate):
     # ZCR
@@ -42,21 +28,9 @@ def extract_features(data, sample_rate):
     return result
 
 def get_features(path):
-    data, sample_rate = librosa.load(path, duration=2.5, offset=0.6)
+    data, sample_rate = librosa.load(path, duration=None, offset=0.0)
 
     # without augmentation
     res1 = extract_features(data, sample_rate)
     result = np.array(res1)
-
-    # data with noise
-    noise_data = noise(data)
-    res2 = extract_features(noise_data, sample_rate)
-    result = np.vstack((result, res2))  # stacking vertically
-
-    # data with stretching and pitching
-    new_data = stretch(data)
-    data_stretch_pitch = pitch(new_data, sample_rate)
-    res3 = extract_features(data_stretch_pitch, sample_rate)
-    result = np.vstack((result, res3))  # stacking vertically
-
     return result
