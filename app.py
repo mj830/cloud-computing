@@ -18,6 +18,7 @@ import os
 import shutil
 from logging.handlers import RotatingFileHandler
 
+from sqlalchemy import func
 # 配置日志记录器
 # logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 file_handler = RotatingFileHandler(filename='app.log', maxBytes=10000, backupCount=1)
@@ -123,6 +124,9 @@ def upload_audio():
     app.logger.info(f"----- [ --- General Execution time for {number} files: {execution_time_general} seconds --- ] -----")  # 记录性能
 
     db.session.commit()
+
+    total_run_time = db.session.query(func.sum(DreamModel.run_time)).scalar()
+    app.logger.info(f"----- [ --- Origin sum for Execution times: {total_run_time} seconds --- ] -----")  # 记录初始总时间
 
     folder_to_clear = 'static/audio'
     clear_folder(folder_to_clear)

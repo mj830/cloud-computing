@@ -1,358 +1,226 @@
-Exception on /upload_audio [POST]
-Traceback (most recent call last):
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/root/cloud-computing/app.py", line 76, in upload_audio
-    convert_webm_to_wav(input_file, output_file)
-  File "/root/cloud-computing/app.py", line 129, in convert_webm_to_wav
-    subprocess.run(command, check=True)
-  File "/usr/lib64/python3.9/subprocess.py", line 505, in run
-    with Popen(*popenargs, **kwargs) as process:
-  File "/usr/lib64/python3.9/subprocess.py", line 951, in __init__
-    self._execute_child(args, executable, preexec_fn, close_fds,
-  File "/usr/lib64/python3.9/subprocess.py", line 1821, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
-FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
-Exception on /upload_audio [POST]
-Traceback (most recent call last):
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/root/cloud-computing/app.py", line 76, in upload_audio
-    convert_webm_to_wav(input_file, output_file)
-  File "/root/cloud-computing/app.py", line 129, in convert_webm_to_wav
-    subprocess.run(command, check=True)
-  File "/usr/lib64/python3.9/subprocess.py", line 505, in run
-    with Popen(*popenargs, **kwargs) as process:
-  File "/usr/lib64/python3.9/subprocess.py", line 951, in __init__
-    self._execute_child(args, executable, preexec_fn, close_fds,
-  File "/usr/lib64/python3.9/subprocess.py", line 1821, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
-FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
-2024-05-18 07:55:09,010 INFO 101.44.80.58 - - [18/May/2024 07:55:09] "GET / HTTP/1.1" 200 -
-2024-05-18 07:55:09,329 INFO 101.44.80.58 - - [18/May/2024 07:55:09] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:09,764 INFO 101.44.80.58 - - [18/May/2024 07:55:09] "[36mGET /static/css/magnific-popup.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:09,779 INFO 101.44.80.58 - - [18/May/2024 07:55:09] "[36mGET /static/css/icofont.min.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:09,850 INFO 101.44.80.58 - - [18/May/2024 07:55:09] "[36mGET /static/css/slick.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:10,048 INFO 101.44.80.58 - - [18/May/2024 07:55:10] "[36mGET /static/css/sal.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:10,142 INFO 101.44.80.58 - - [18/May/2024 07:55:10] "[36mGET /static/css/select2.min.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:10,478 INFO 101.44.80.58 - - [18/May/2024 07:55:10] "[36mGET /static/css/css2.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:10,497 INFO 101.44.80.58 - - [18/May/2024 07:55:10] "[36mGET /static/css/app.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:11,248 INFO 101.44.80.58 - - [18/May/2024 07:55:11] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:11,835 INFO 101.44.80.58 - - [18/May/2024 07:55:11] "[36mGET /static/css/slick-theme.css HTTP/1.1[0m" 304 -
-2024-05-18 07:55:11,976 INFO 101.44.80.58 - - [18/May/2024 07:55:11] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:12,548 INFO 101.44.80.58 - - [18/May/2024 07:55:12] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:12,579 INFO 101.44.80.58 - - [18/May/2024 07:55:12] "[36mGET /static/js/imagesloaded.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:12,590 INFO 101.44.80.58 - - [18/May/2024 07:55:12] "[36mGET /static/js/slick.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:12,692 INFO 101.44.80.58 - - [18/May/2024 07:55:12] "[36mGET /static/font/XRXV3I6Li01BKofINeaB.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 07:55:12,842 INFO 101.44.80.58 - - [18/May/2024 07:55:12] "[36mGET /static/js/isotope.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:13,286 INFO 101.44.80.58 - - [18/May/2024 07:55:13] "[36mGET /static/font/XRXW3I6Li01BKofAjsOUYevI.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 07:55:13,320 INFO 101.44.80.58 - - [18/May/2024 07:55:13] "[36mGET /static/picture/logo_minimini.png HTTP/1.1[0m" 304 -
-2024-05-18 07:55:13,322 INFO 101.44.80.58 - - [18/May/2024 07:55:13] "[36mGET /static/font/XRXW3I6Li01BKofA6sKUYevI.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 07:55:13,624 INFO 101.44.80.58 - - [18/May/2024 07:55:13] "[36mGET /static/picture/Logo_mini.png HTTP/1.1[0m" 304 -
-2024-05-18 07:55:13,840 INFO 101.44.80.58 - - [18/May/2024 07:55:13] "[33mGET /static/image/chat_round_shape4.png HTTP/1.1[0m" 404 -
-2024-05-18 07:55:14,028 INFO 101.44.80.58 - - [18/May/2024 07:55:14] "[33mGET /static/image/round_shape1.png HTTP/1.1[0m" 404 -
-2024-05-18 07:55:14,057 INFO 101.44.80.58 - - [18/May/2024 07:55:14] "[36mGET /static/picture/chiikawa.jpg HTTP/1.1[0m" 304 -
-2024-05-18 07:55:14,243 INFO 101.44.80.58 - - [18/May/2024 07:55:14] "[36mGET /static/image/pink.png HTTP/1.1[0m" 304 -
-2024-05-18 07:55:14,617 INFO 101.44.80.58 - - [18/May/2024 07:55:14] "[36mGET /static/js/sal.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:14,826 INFO 101.44.80.58 - - [18/May/2024 07:55:14] "[36mGET /static/js/jquery.magnific-popup.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:14,958 INFO 101.44.80.58 - - [18/May/2024 07:55:14] "[36mGET /static/js/file_upload.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:14,960 INFO 101.44.80.58 - - [18/May/2024 07:55:14] "[36mGET /static/js/select2.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:14,979 INFO 101.44.80.58 - - [18/May/2024 07:55:14] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:15,316 INFO 101.44.80.58 - - [18/May/2024 07:55:15] "[36mGET /static/picture/Logo_Dark_1.png HTTP/1.1[0m" 304 -
-2024-05-18 07:55:15,572 INFO 101.44.80.58 - - [18/May/2024 07:55:15] "[36mGET /static/font/icofont.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 07:55:16,809 INFO 101.44.80.58 - - [18/May/2024 07:55:16] "[36mGET /static/js/validator.min.js HTTP/1.1[0m" 304 -
-2024-05-18 07:55:26,801 INFO 101.44.80.58 - - [18/May/2024 07:55:26] "[36mGET /static/font/XRXX3I6Li01BKofIMNaDRs4.woff2 HTTP/1.1[0m" 304 -
-Exception on /upload_audio [POST]
-Traceback (most recent call last):
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/root/cloud-computing/app.py", line 76, in upload_audio
-    convert_webm_to_wav(input_file, output_file)
-  File "/root/cloud-computing/app.py", line 129, in convert_webm_to_wav
-    subprocess.run(command, check=True)
-  File "/usr/lib64/python3.9/subprocess.py", line 505, in run
-    with Popen(*popenargs, **kwargs) as process:
-  File "/usr/lib64/python3.9/subprocess.py", line 951, in __init__
-    self._execute_child(args, executable, preexec_fn, close_fds,
-  File "/usr/lib64/python3.9/subprocess.py", line 1821, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
-FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
-2024-05-18 07:55:28,446 ERROR Exception on /upload_audio [POST]
-Traceback (most recent call last):
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/root/cloud-computing/myenv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/root/cloud-computing/app.py", line 76, in upload_audio
-    convert_webm_to_wav(input_file, output_file)
-  File "/root/cloud-computing/app.py", line 129, in convert_webm_to_wav
-    subprocess.run(command, check=True)
-  File "/usr/lib64/python3.9/subprocess.py", line 505, in run
-    with Popen(*popenargs, **kwargs) as process:
-  File "/usr/lib64/python3.9/subprocess.py", line 951, in __init__
-    self._execute_child(args, executable, preexec_fn, close_fds,
-  File "/usr/lib64/python3.9/subprocess.py", line 1821, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
-FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
-2024-05-18 07:55:28,449 INFO 101.44.80.58 - - [18/May/2024 07:55:28] "[35m[1mPOST /upload_audio HTTP/1.1[0m" 500 -
-2024-05-18 08:00:51,603 INFO 101.44.80.58 - - [18/May/2024 08:00:51] "GET / HTTP/1.1" 200 -
-2024-05-18 08:00:51,935 INFO 101.44.80.58 - - [18/May/2024 08:00:51] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:52,496 INFO 101.44.80.58 - - [18/May/2024 08:00:52] "[36mGET /static/css/magnific-popup.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:52,498 INFO 101.44.80.58 - - [18/May/2024 08:00:52] "[36mGET /static/css/slick.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:52,499 INFO 101.44.80.58 - - [18/May/2024 08:00:52] "[36mGET /static/css/slick-theme.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:52,501 INFO 101.44.80.58 - - [18/May/2024 08:00:52] "[36mGET /static/css/icofont.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:52,605 INFO 101.44.80.58 - - [18/May/2024 08:00:52] "[36mGET /static/css/sal.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:52,754 INFO 101.44.80.58 - - [18/May/2024 08:00:52] "[36mGET /static/css/select2.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:53,266 INFO 101.44.80.58 - - [18/May/2024 08:00:53] "[36mGET /static/css/app.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:53,269 INFO 101.44.80.58 - - [18/May/2024 08:00:53] "[36mGET /static/css/css2.css HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,043 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,058 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/js/slick.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,090 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/js/imagesloaded.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,093 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,094 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,100 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/js/isotope.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,860 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/font/XRXV3I6Li01BKofINeaB.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,949 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/image/pink.png HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,951 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/font/XRXW3I6Li01BKofAjsOUYevI.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,952 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/font/XRXW3I6Li01BKofA6sKUYevI.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,953 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/picture/logo_minimini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:00:54,954 INFO 101.44.80.58 - - [18/May/2024 08:00:54] "[36mGET /static/picture/Logo_mini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:00:55,620 INFO 101.44.80.58 - - [18/May/2024 08:00:55] "[36mGET /static/picture/chiikawa.jpg HTTP/1.1[0m" 304 -
-2024-05-18 08:00:55,785 INFO 101.44.80.58 - - [18/May/2024 08:00:55] "[33mGET /static/image/chat_round_shape4.png HTTP/1.1[0m" 404 -
-2024-05-18 08:00:55,788 INFO 101.44.80.58 - - [18/May/2024 08:00:55] "[36mGET /static/js/sal.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:55,839 INFO 101.44.80.58 - - [18/May/2024 08:00:55] "[33mGET /static/image/round_shape1.png HTTP/1.1[0m" 404 -
-2024-05-18 08:00:56,706 INFO 101.44.80.58 - - [18/May/2024 08:00:56] "[36mGET /static/js/jquery.magnific-popup.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:56,726 INFO 101.44.80.58 - - [18/May/2024 08:00:56] "[36mGET /static/js/validator.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:56,782 INFO 101.44.80.58 - - [18/May/2024 08:00:56] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:56,783 INFO 101.44.80.58 - - [18/May/2024 08:00:56] "[36mGET /static/js/select2.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:56,909 INFO 101.44.80.58 - - [18/May/2024 08:00:56] "[36mGET /static/js/file_upload.js HTTP/1.1[0m" 304 -
-2024-05-18 08:00:56,914 INFO 101.44.80.58 - - [18/May/2024 08:00:56] "[36mGET /static/picture/Logo_Dark_1.png HTTP/1.1[0m" 304 -
-2024-05-18 08:00:57,631 INFO 101.44.80.58 - - [18/May/2024 08:00:57] "[36mGET /static/font/icofont.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:01:03,464 INFO 101.44.80.58 - - [18/May/2024 08:01:03] "[36mGET /static/font/XRXX3I6Li01BKofIMNaDRs4.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:01:07,339 INFO CPU utilization before prediction: 0.0%
-2024-05-18 08:01:07,340 INFO CPU utilization after prediction: 53.2%
-2024-05-18 08:01:07,340 INFO Memory usage before prediction: 523.140625 MB
-2024-05-18 08:01:07,340 INFO Memory usage after prediction: 585.8515625 MB
-2024-05-18 08:01:07,340 INFO Execution time: 2.0541365146636963 seconds
-2024-05-18 08:01:07,894 INFO CPU utilization before prediction: 62.5%
-2024-05-18 08:01:07,894 INFO CPU utilization after prediction: 64.4%
-2024-05-18 08:01:07,895 INFO Memory usage before prediction: 587.51171875 MB
-2024-05-18 08:01:07,895 INFO Memory usage after prediction: 604.91796875 MB
-2024-05-18 08:01:07,895 INFO Execution time: 0.5174703598022461 seconds
-2024-05-18 08:01:08,487 INFO CPU utilization before prediction: 55.6%
-2024-05-18 08:01:08,487 INFO CPU utilization after prediction: 60.0%
-2024-05-18 08:01:08,487 INFO Memory usage before prediction: 606.34765625 MB
-2024-05-18 08:01:08,487 INFO Memory usage after prediction: 615.12109375 MB
-2024-05-18 08:01:08,487 INFO Execution time: 0.5561933517456055 seconds
-2024-05-18 08:01:09,014 INFO CPU utilization before prediction: 50.0%
-2024-05-18 08:01:09,014 INFO CPU utilization after prediction: 63.6%
-2024-05-18 08:01:09,014 INFO Memory usage before prediction: 616.40234375 MB
-2024-05-18 08:01:09,014 INFO Memory usage after prediction: 625.75390625 MB
-2024-05-18 08:01:09,015 INFO Execution time: 0.5005803108215332 seconds
-2024-05-18 08:01:09,531 WARNING 5 out of the last 5 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x7faae1828b80> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
-2024-05-18 08:01:09,534 INFO CPU utilization before prediction: 75.0%
-2024-05-18 08:01:09,535 INFO CPU utilization after prediction: 64.6%
-2024-05-18 08:01:09,535 INFO Memory usage before prediction: 626.7890625 MB
-2024-05-18 08:01:09,535 INFO Memory usage after prediction: 642.50390625 MB
-2024-05-18 08:01:09,535 INFO Execution time: 0.49043893814086914 seconds
-2024-05-18 08:01:10,046 WARNING 6 out of the last 6 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x7faae1726ca0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
-2024-05-18 08:01:10,089 INFO CPU utilization before prediction: 50.0%
-2024-05-18 08:01:10,090 INFO CPU utilization after prediction: 59.0%
-2024-05-18 08:01:10,090 INFO Memory usage before prediction: 644.27734375 MB
-2024-05-18 08:01:10,090 INFO Memory usage after prediction: 652.58203125 MB
-2024-05-18 08:01:10,090 INFO Execution time: 0.5268776416778564 seconds
-2024-05-18 08:01:10,645 INFO CPU utilization before prediction: 66.7%
-2024-05-18 08:01:10,645 INFO CPU utilization after prediction: 59.0%
-2024-05-18 08:01:10,645 INFO Memory usage before prediction: 654.69921875 MB
-2024-05-18 08:01:10,645 INFO Memory usage after prediction: 662.4921875 MB
-2024-05-18 08:01:10,645 INFO Execution time: 0.5262947082519531 seconds
-2024-05-18 08:01:11,180 INFO CPU utilization before prediction: 57.1%
-2024-05-18 08:01:11,180 INFO CPU utilization after prediction: 64.3%
-2024-05-18 08:01:11,180 INFO Memory usage before prediction: 664.90625 MB
-2024-05-18 08:01:11,180 INFO Memory usage after prediction: 666.796875 MB
-2024-05-18 08:01:11,181 INFO Execution time: 0.5024638175964355 seconds
-2024-05-18 08:01:11,181 INFO ----- [ --- General Execution time for 8 files: 5.9262471199035645 seconds --- ] -----
-2024-05-18 08:01:11,192 INFO 101.44.80.58 - - [18/May/2024 08:01:11] "[32mPOST /upload_audio HTTP/1.1[0m" 302 -
-2024-05-18 08:01:11,510 INFO 101.44.80.58 - - [18/May/2024 08:01:11] "GET /my_dream HTTP/1.1" 200 -
-2024-05-18 08:01:12,265 INFO 101.44.80.58 - - [18/May/2024 08:01:12] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:12,284 INFO 101.44.80.58 - - [18/May/2024 08:01:12] "[36mGET /static/css/slick-theme.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:12,296 INFO 101.44.80.58 - - [18/May/2024 08:01:12] "[36mGET /static/css/icofont.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:12,298 INFO 101.44.80.58 - - [18/May/2024 08:01:12] "[36mGET /static/css/magnific-popup.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:12,308 INFO 101.44.80.58 - - [18/May/2024 08:01:12] "[36mGET /static/css/slick.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:12,544 INFO 101.44.80.58 - - [18/May/2024 08:01:12] "[36mGET /static/css/sal.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,014 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/css/app.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,049 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/css/css2.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,054 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/css/select2.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,770 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,832 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/js/slick.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,846 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,849 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,872 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/js/isotope.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:13,964 INFO 101.44.80.58 - - [18/May/2024 08:01:13] "[36mGET /static/js/imagesloaded.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:14,492 INFO 101.44.80.58 - - [18/May/2024 08:01:14] "[36mGET /static/picture/logo_minimini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:14,558 INFO 101.44.80.58 - - [18/May/2024 08:01:14] "[36mGET /static/picture/chiikawa.jpg HTTP/1.1[0m" 304 -
-2024-05-18 08:01:14,656 INFO 101.44.80.58 - - [18/May/2024 08:01:14] "[36mGET /static/picture/Logo_mini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:14,800 INFO 101.44.80.58 - - [18/May/2024 08:01:14] "[36mGET /static/js/sal.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:15,267 INFO 101.44.80.58 - - [18/May/2024 08:01:15] "[36mGET /static/js/jquery.magnific-popup.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:15,330 INFO 101.44.80.58 - - [18/May/2024 08:01:15] "[36mGET /static/js/validator.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:15,426 INFO 101.44.80.58 - - [18/May/2024 08:01:15] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:15,443 INFO 101.44.80.58 - - [18/May/2024 08:01:15] "[36mGET /static/js/file_upload.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:15,457 INFO 101.44.80.58 - - [18/May/2024 08:01:15] "[36mGET /static/js/select2.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:15,549 INFO 101.44.80.58 - - [18/May/2024 08:01:15] "[36mGET /static/picture/Logo_Dark_1.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:16,422 INFO 101.44.80.58 - - [18/May/2024 08:01:16] "GET /static/picture/favicon.png HTTP/1.1" 200 -
-2024-05-18 08:01:39,296 INFO 219.79.26.31 - - [18/May/2024 08:01:39] "GET / HTTP/1.1" 200 -
-2024-05-18 08:01:39,894 INFO 219.79.26.31 - - [18/May/2024 08:01:39] "[36mGET /static/css/icofont.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:39,899 INFO 219.79.26.31 - - [18/May/2024 08:01:39] "[36mGET /static/css/magnific-popup.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:39,900 INFO 219.79.26.31 - - [18/May/2024 08:01:39] "[36mGET /static/css/slick.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:39,902 INFO 219.79.26.31 - - [18/May/2024 08:01:39] "[36mGET /static/css/slick-theme.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:39,912 INFO 219.79.26.31 - - [18/May/2024 08:01:39] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:40,222 INFO 219.79.26.31 - - [18/May/2024 08:01:40] "[36mGET /static/css/sal.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:40,495 INFO 219.79.26.31 - - [18/May/2024 08:01:40] "[36mGET /static/css/select2.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:40,497 INFO 219.79.26.31 - - [18/May/2024 08:01:40] "[36mGET /static/css/css2.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:40,510 INFO 219.79.26.31 - - [18/May/2024 08:01:40] "[36mGET /static/css/app.css HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,096 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/picture/logo_minimini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,101 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/picture/chiikawa.jpg HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,139 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,140 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/picture/Logo_Dark_1.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,142 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,154 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/picture/Logo_mini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,702 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/font/XRXV3I6Li01BKofINeaB.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,706 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/font/XRXW3I6Li01BKofA6sKUYevI.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,744 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[33mGET /static/image/round_shape1.png HTTP/1.1[0m" 404 -
-2024-05-18 08:01:41,746 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/image/pink.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,761 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[36mGET /static/font/XRXW3I6Li01BKofAjsOUYevI.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:01:41,767 INFO 219.79.26.31 - - [18/May/2024 08:01:41] "[33mGET /static/image/chat_round_shape4.png HTTP/1.1[0m" 404 -
-2024-05-18 08:01:42,283 INFO 219.79.26.31 - - [18/May/2024 08:01:42] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:42,336 INFO 219.79.26.31 - - [18/May/2024 08:01:42] "[36mGET /static/js/imagesloaded.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:42,354 INFO 219.79.26.31 - - [18/May/2024 08:01:42] "[36mGET /static/js/jquery.magnific-popup.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:42,356 INFO 219.79.26.31 - - [18/May/2024 08:01:42] "[36mGET /static/js/slick.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:42,404 INFO 219.79.26.31 - - [18/May/2024 08:01:42] "[36mGET /static/js/sal.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:43,127 INFO 219.79.26.31 - - [18/May/2024 08:01:43] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:43,128 INFO 219.79.26.31 - - [18/May/2024 08:01:43] "[36mGET /static/js/select2.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:43,131 INFO 219.79.26.31 - - [18/May/2024 08:01:43] "[36mGET /static/js/file_upload.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:43,134 INFO 219.79.26.31 - - [18/May/2024 08:01:43] "[36mGET /static/js/validator.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:43,135 INFO 219.79.26.31 - - [18/May/2024 08:01:43] "[36mGET /static/font/icofont.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:01:43,358 INFO 219.79.26.31 - - [18/May/2024 08:01:43] "[36mGET /static/js/isotope.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:01:43,983 INFO 219.79.26.31 - - [18/May/2024 08:01:43] "[36mGET /static/picture/logo_pic.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:44,656 INFO 219.79.26.31 - - [18/May/2024 08:01:44] "[36mGET /static/picture/logo_pic.png HTTP/1.1[0m" 304 -
-2024-05-18 08:01:52,152 INFO 219.79.26.31 - - [18/May/2024 08:01:52] "[36mGET /static/font/XRXX3I6Li01BKofIMNaDRs4.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:01:54,138 INFO 219.79.26.31 - - [18/May/2024 08:01:54] "[31m[1mPOST /upload_audio HTTP/1.1[0m" 400 -
-2024-05-18 08:02:00,952 INFO 219.79.26.31 - - [18/May/2024 08:02:00] "[31m[1mPOST /upload_audio HTTP/1.1[0m" 400 -
-2024-05-18 08:02:33,770 INFO 219.79.26.31 - - [18/May/2024 08:02:33] "[31m[1mPOST /upload_audio HTTP/1.1[0m" 400 -
-2024-05-18 08:03:26,624 INFO 101.44.80.58 - - [18/May/2024 08:03:26] "GET /my_dream?page_all=2&dream_id=dream_id HTTP/1.1" 200 -
-2024-05-18 08:03:26,969 INFO 101.44.80.58 - - [18/May/2024 08:03:26] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:27,408 INFO 101.44.80.58 - - [18/May/2024 08:03:27] "[36mGET /static/css/slick.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:27,430 INFO 101.44.80.58 - - [18/May/2024 08:03:27] "[36mGET /static/css/magnific-popup.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:27,433 INFO 101.44.80.58 - - [18/May/2024 08:03:27] "[36mGET /static/css/icofont.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:27,459 INFO 101.44.80.58 - - [18/May/2024 08:03:27] "[36mGET /static/css/slick-theme.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:27,761 INFO 101.44.80.58 - - [18/May/2024 08:03:27] "[36mGET /static/css/select2.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:27,769 INFO 101.44.80.58 - - [18/May/2024 08:03:27] "[36mGET /static/css/sal.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:28,168 INFO 101.44.80.58 - - [18/May/2024 08:03:28] "[36mGET /static/css/app.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:28,328 INFO 101.44.80.58 - - [18/May/2024 08:03:28] "[36mGET /static/css/css2.css HTTP/1.1[0m" 304 -
-2024-05-18 08:03:28,974 INFO 101.44.80.58 - - [18/May/2024 08:03:28] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,042 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,052 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/js/slick.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,055 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/js/isotope.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,056 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,064 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/js/imagesloaded.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,696 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/picture/logo_minimini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,893 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/js/sal.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,899 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/picture/Logo_mini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:03:29,903 INFO 101.44.80.58 - - [18/May/2024 08:03:29] "[36mGET /static/picture/chiikawa.jpg HTTP/1.1[0m" 304 -
-2024-05-18 08:03:30,663 INFO 101.44.80.58 - - [18/May/2024 08:03:30] "[36mGET /static/js/select2.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:30,664 INFO 101.44.80.58 - - [18/May/2024 08:03:30] "[36mGET /static/js/validator.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:30,666 INFO 101.44.80.58 - - [18/May/2024 08:03:30] "[36mGET /static/js/file_upload.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:30,668 INFO 101.44.80.58 - - [18/May/2024 08:03:30] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2024-05-18 08:03:30,716 INFO 101.44.80.58 - - [18/May/2024 08:03:30] "[36mGET /static/picture/Logo_Dark_1.png HTTP/1.1[0m" 304 -
-2024-05-18 08:03:30,768 INFO 101.44.80.58 - - [18/May/2024 08:03:30] "[36mGET /static/js/jquery.magnific-popup.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:48,002 INFO 219.79.26.31 - - [18/May/2024 08:04:48] "GET / HTTP/1.1" 200 -
-2024-05-18 08:04:48,777 INFO 219.79.26.31 - - [18/May/2024 08:04:48] "[36mGET /static/css/icofont.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:48,779 INFO 219.79.26.31 - - [18/May/2024 08:04:48] "[36mGET /static/css/slick.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:48,780 INFO 219.79.26.31 - - [18/May/2024 08:04:48] "[36mGET /static/css/slick-theme.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:48,782 INFO 219.79.26.31 - - [18/May/2024 08:04:48] "[36mGET /static/css/magnific-popup.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:48,785 INFO 219.79.26.31 - - [18/May/2024 08:04:48] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:48,821 INFO 219.79.26.31 - - [18/May/2024 08:04:48] "[36mGET /static/css/sal.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:49,472 INFO 219.79.26.31 - - [18/May/2024 08:04:49] "[36mGET /static/css/app.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:49,473 INFO 219.79.26.31 - - [18/May/2024 08:04:49] "[36mGET /static/css/css2.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:49,475 INFO 219.79.26.31 - - [18/May/2024 08:04:49] "[36mGET /static/css/select2.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,200 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,201 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,202 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/picture/chiikawa.jpg HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,203 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/picture/Logo_mini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,204 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/picture/Logo_Dark_1.png HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,205 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/picture/logo_minimini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,943 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/font/XRXW3I6Li01BKofA6sKUYevI.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,945 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/font/XRXV3I6Li01BKofINeaB.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,955 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/font/XRXW3I6Li01BKofAjsOUYevI.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:04:50,956 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[33mGET /static/image/chat_round_shape4.png HTTP/1.1[0m" 404 -
-2024-05-18 08:04:50,959 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[33mGET /static/image/round_shape1.png HTTP/1.1[0m" 404 -
-2024-05-18 08:04:50,967 INFO 219.79.26.31 - - [18/May/2024 08:04:50] "[36mGET /static/image/pink.png HTTP/1.1[0m" 304 -
-2024-05-18 08:04:51,636 INFO 219.79.26.31 - - [18/May/2024 08:04:51] "[36mGET /static/js/slick.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:51,638 INFO 219.79.26.31 - - [18/May/2024 08:04:51] "[36mGET /static/js/jquery.magnific-popup.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:51,639 INFO 219.79.26.31 - - [18/May/2024 08:04:51] "[36mGET /static/js/sal.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:51,641 INFO 219.79.26.31 - - [18/May/2024 08:04:51] "[36mGET /static/js/isotope.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:51,643 INFO 219.79.26.31 - - [18/May/2024 08:04:51] "[36mGET /static/js/imagesloaded.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:51,646 INFO 219.79.26.31 - - [18/May/2024 08:04:51] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:52,250 INFO 219.79.26.31 - - [18/May/2024 08:04:52] "[36mGET /static/js/validator.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:52,254 INFO 219.79.26.31 - - [18/May/2024 08:04:52] "[36mGET /static/js/file_upload.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:52,256 INFO 219.79.26.31 - - [18/May/2024 08:04:52] "[36mGET /static/font/icofont.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:04:52,258 INFO 219.79.26.31 - - [18/May/2024 08:04:52] "[36mGET /static/js/select2.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:52,266 INFO 219.79.26.31 - - [18/May/2024 08:04:52] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2024-05-18 08:04:52,998 INFO 219.79.26.31 - - [18/May/2024 08:04:52] "[36mGET /static/picture/logo_pic.png HTTP/1.1[0m" 304 -
-2024-05-18 08:05:26,580 INFO 219.79.26.31 - - [18/May/2024 08:05:26] "[36mGET /static/font/XRXX3I6Li01BKofIMNaDRs4.woff2 HTTP/1.1[0m" 304 -
-2024-05-18 08:05:32,628 INFO CPU utilization before prediction: 0.2%
-2024-05-18 08:05:32,628 INFO CPU utilization after prediction: 64.5%
-2024-05-18 08:05:32,629 INFO Memory usage before prediction: 677.40625 MB
-2024-05-18 08:05:32,629 INFO Memory usage after prediction: 690.3671875 MB
-2024-05-18 08:05:32,629 INFO Execution time: 0.5537607669830322 seconds
-2024-05-18 08:05:32,630 INFO ----- [ --- General Execution time for 1 files: 0.6120767593383789 seconds --- ] -----
-2024-05-18 08:05:32,637 INFO 219.79.26.31 - - [18/May/2024 08:05:32] "[32mPOST /upload_audio HTTP/1.1[0m" 302 -
-2024-05-18 08:05:33,302 INFO 219.79.26.31 - - [18/May/2024 08:05:33] "GET /my_dream HTTP/1.1" 200 -
-2024-05-18 08:05:33,938 INFO 219.79.26.31 - - [18/May/2024 08:05:33] "[36mGET /static/css/slick.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:33,941 INFO 219.79.26.31 - - [18/May/2024 08:05:33] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:33,942 INFO 219.79.26.31 - - [18/May/2024 08:05:33] "[36mGET /static/css/icofont.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:33,943 INFO 219.79.26.31 - - [18/May/2024 08:05:33] "[36mGET /static/css/slick-theme.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:33,945 INFO 219.79.26.31 - - [18/May/2024 08:05:33] "[36mGET /static/css/magnific-popup.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:34,137 INFO 219.79.26.31 - - [18/May/2024 08:05:34] "[36mGET /static/css/sal.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:34,530 INFO 219.79.26.31 - - [18/May/2024 08:05:34] "[36mGET /static/css/app.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:34,533 INFO 219.79.26.31 - - [18/May/2024 08:05:34] "[36mGET /static/css/select2.min.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:34,549 INFO 219.79.26.31 - - [18/May/2024 08:05:34] "[36mGET /static/css/css2.css HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,221 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/picture/logo_minimini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,223 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/picture/chiikawa.jpg HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,253 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/picture/Logo_mini.png HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,254 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/js/jquery.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,256 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/js/popper.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,279 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/picture/Logo_Dark_1.png HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,954 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/js/slick.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,959 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/js/sal.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,961 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/js/isotope.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,962 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/js/imagesloaded.pkgd.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,964 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:35,973 INFO 219.79.26.31 - - [18/May/2024 08:05:35] "[36mGET /static/js/jquery.magnific-popup.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:36,671 INFO 219.79.26.31 - - [18/May/2024 08:05:36] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:36,674 INFO 219.79.26.31 - - [18/May/2024 08:05:36] "[36mGET /static/js/select2.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:36,676 INFO 219.79.26.31 - - [18/May/2024 08:05:36] "[36mGET /static/js/validator.min.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:36,678 INFO 219.79.26.31 - - [18/May/2024 08:05:36] "[36mGET /static/js/file_upload.js HTTP/1.1[0m" 304 -
-2024-05-18 08:05:37,557 INFO 219.79.26.31 - - [18/May/2024 08:05:37] "[36mGET /static/picture/favicon.png HTTP/1.1[0m" 304 -
+CPU utilization before prediction: 12.9%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1261.69921875 MB
+Memory usage after prediction: 1395.96484375 MB
+Execution time: 2.0667531490325928 seconds
+CPU utilization before prediction: 12.5%
+CPU utilization after prediction: 99.8%
+Memory usage before prediction: 1261.3515625 MB
+Memory usage after prediction: 1391.98046875 MB
+Execution time: 2.0571930408477783 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1398.34765625 MB
+Memory usage after prediction: 1439.8671875 MB
+Execution time: 0.5237307548522949 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1399.2421875 MB
+Memory usage after prediction: 1441.44140625 MB
+Execution time: 0.6118049621582031 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 99.1%
+Memory usage before prediction: 1440.2109375 MB
+Memory usage after prediction: 1461.078125 MB
+Execution time: 0.525637149810791 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 99.2%
+Memory usage before prediction: 1443.8515625 MB
+Memory usage after prediction: 1472.20703125 MB
+Execution time: 0.6042675971984863 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1461.625 MB
+Memory usage after prediction: 1482.24609375 MB
+Execution time: 0.5596625804901123 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1472.40234375 MB
+Memory usage after prediction: 1492.53125 MB
+Execution time: 0.6030151844024658 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1483.671875 MB
+Memory usage after prediction: 1498.59765625 MB
+Execution time: 0.5485115051269531 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1494.3046875 MB
+Memory usage after prediction: 1520.515625 MB
+Execution time: 0.6238324642181396 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1499.04296875 MB
+Memory usage after prediction: 1525.53515625 MB
+Execution time: 0.5739068984985352 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1523.56640625 MB
+Memory usage after prediction: 1536.44921875 MB
+Execution time: 0.6103048324584961 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1525.4375 MB
+Memory usage after prediction: 1549.6875 MB
+Execution time: 0.6036410331726074 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1543.53515625 MB
+Memory usage after prediction: 1564.41015625 MB
+Execution time: 0.5918323993682861 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1549.39453125 MB
+Memory usage after prediction: 1579.94140625 MB
+Execution time: 0.63564133644104 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1572.6796875 MB
+Memory usage after prediction: 1580.87109375 MB
+Execution time: 0.5922417640686035 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1580.87109375 MB
+Memory usage after prediction: 1581.21484375 MB
+Execution time: 0.5777297019958496 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 99.2%
+Memory usage before prediction: 1580.96875 MB
+Memory usage after prediction: 1591.4140625 MB
+Execution time: 0.5937411785125732 seconds
+CPU utilization before prediction: 92.3%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1585.0078125 MB
+Memory usage after prediction: 1604.6484375 MB
+Execution time: 0.5980947017669678 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1592.09765625 MB
+Memory usage after prediction: 1613.25390625 MB
+Execution time: 0.5363659858703613 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1605.625 MB
+Memory usage after prediction: 1616.97265625 MB
+Execution time: 0.5309505462646484 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1612.5703125 MB
+Memory usage after prediction: 1631.19140625 MB
+Execution time: 0.5876834392547607 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1617.1640625 MB
+Memory usage after prediction: 1643.93359375 MB
+Execution time: 0.5295960903167725 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1631.875 MB
+Memory usage after prediction: 1649.1015625 MB
+Execution time: 0.5388302803039551 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1649.1015625 MB
+Memory usage after prediction: 1573.2265625 MB
+Execution time: 0.824373722076416 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1649.34765625 MB
+Memory usage after prediction: 1511.0390625 MB
+Execution time: 0.8362290859222412 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1573.32421875 MB
+Memory usage after prediction: 1514.39453125 MB
+Execution time: 0.5536580085754395 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1513.9453125 MB
+Memory usage after prediction: 1544.34765625 MB
+Execution time: 0.6046042442321777 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1515.5546875 MB
+Memory usage after prediction: 1545.328125 MB
+Execution time: 0.5382769107818604 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1545.08203125 MB
+Memory usage after prediction: 1559.12109375 MB
+Execution time: 0.5680215358734131 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1546.65625 MB
+Memory usage after prediction: 1559.171875 MB
+Execution time: 0.5483474731445312 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 99.1%
+Memory usage before prediction: 1559.171875 MB
+Memory usage after prediction: 1570.7890625 MB
+Execution time: 0.5690877437591553 seconds
+CPU utilization before prediction: 90.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1558.9765625 MB
+Memory usage after prediction: 1572.7578125 MB
+Execution time: 0.5682857036590576 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1572.265625 MB
+Memory usage after prediction: 1586.18359375 MB
+Execution time: 0.5682032108306885 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1574.234375 MB
+Memory usage after prediction: 1586.87109375 MB
+Execution time: 0.5441865921020508 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1586.37890625 MB
+Memory usage after prediction: 1599.86328125 MB
+Execution time: 0.5526213645935059 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1588.296875 MB
+Memory usage after prediction: 1601.640625 MB
+Execution time: 0.531982421875 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1601.640625 MB
+Memory usage after prediction: 1610.09375 MB
+Execution time: 0.5965394973754883 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1602.87109375 MB
+Memory usage after prediction: 1609.8984375 MB
+Execution time: 0.5386602878570557 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1612.74609375 MB
+Memory usage after prediction: 1619.8125 MB
+Execution time: 0.5324249267578125 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1612.75390625 MB
+Memory usage after prediction: 1622.86328125 MB
+Execution time: 0.6264259815216064 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1621.38671875 MB
+Memory usage after prediction: 1635.703125 MB
+Execution time: 0.5239291191101074 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1624.3828125 MB
+Memory usage after prediction: 1635.9765625 MB
+Execution time: 0.567420482635498 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1635.9765625 MB
+Memory usage after prediction: 1644.11328125 MB
+Execution time: 0.5819206237792969 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1636.07421875 MB
+Memory usage after prediction: 1644.015625 MB
+Execution time: 0.5466413497924805 seconds
+CPU utilization before prediction: 100.0%

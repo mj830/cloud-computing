@@ -1,47 +1,76 @@
-CPU utilization before prediction: 0.0%
-CPU utilization after prediction: 53.2%
-Memory usage before prediction: 523.140625 MB
-Memory usage after prediction: 585.8515625 MB
-Execution time: 2.0541365146636963 seconds
-CPU utilization before prediction: 62.5%
-CPU utilization after prediction: 64.4%
-Memory usage before prediction: 587.51171875 MB
-Memory usage after prediction: 604.91796875 MB
-Execution time: 0.5174703598022461 seconds
-CPU utilization before prediction: 55.6%
-CPU utilization after prediction: 60.0%
-Memory usage before prediction: 606.34765625 MB
-Memory usage after prediction: 615.12109375 MB
-Execution time: 0.5561933517456055 seconds
-CPU utilization before prediction: 50.0%
-CPU utilization after prediction: 63.6%
-Memory usage before prediction: 616.40234375 MB
-Memory usage after prediction: 625.75390625 MB
-Execution time: 0.5005803108215332 seconds
-CPU utilization before prediction: 75.0%
-CPU utilization after prediction: 64.6%
-Memory usage before prediction: 626.7890625 MB
-Memory usage after prediction: 642.50390625 MB
-Execution time: 0.49043893814086914 seconds
-CPU utilization before prediction: 50.0%
-CPU utilization after prediction: 59.0%
-Memory usage before prediction: 644.27734375 MB
-Memory usage after prediction: 652.58203125 MB
-Execution time: 0.5268776416778564 seconds
-CPU utilization before prediction: 66.7%
-CPU utilization after prediction: 59.0%
-Memory usage before prediction: 654.69921875 MB
-Memory usage after prediction: 662.4921875 MB
-Execution time: 0.5262947082519531 seconds
-CPU utilization before prediction: 57.1%
-CPU utilization after prediction: 64.3%
-Memory usage before prediction: 664.90625 MB
-Memory usage after prediction: 666.796875 MB
-Execution time: 0.5024638175964355 seconds
------ [ --- General Execution time for 8 files: 5.9262471199035645 seconds --- ] -----
-CPU utilization before prediction: 0.2%
-CPU utilization after prediction: 64.5%
-Memory usage before prediction: 677.40625 MB
-Memory usage after prediction: 690.3671875 MB
-Execution time: 0.5537607669830322 seconds
------ [ --- General Execution time for 1 files: 0.6120767593383789 seconds --- ] -----
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1644.015625 MB
+Memory usage after prediction: 1650.765625 MB
+Execution time: 0.6001167297363281 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1643.3828125 MB
+Memory usage after prediction: 1651.546875 MB
+Execution time: 0.616602897644043 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1651.55859375 MB
+Memory usage after prediction: 1657.5 MB
+Execution time: 0.5317656993865967 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1651.83984375 MB
+Memory usage after prediction: 1657.69921875 MB
+Execution time: 0.595278263092041 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1657.453125 MB
+Memory usage after prediction: 1670.46875 MB
+Execution time: 0.5624518394470215 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1665.625 MB
+Memory usage after prediction: 1676.625 MB
+Execution time: 0.6052052974700928 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1674.41015625 MB
+Memory usage after prediction: 1690.8984375 MB
+Execution time: 0.6181721687316895 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 99.2%
+Memory usage before prediction: 1677.1171875 MB
+Memory usage after prediction: 1700.51171875 MB
+Execution time: 0.627577543258667 seconds
+CPU utilization before prediction: 91.7%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1697.39453125 MB
+Memory usage after prediction: 1705.62890625 MB
+Execution time: 0.6116201877593994 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1700.70703125 MB
+Memory usage after prediction: 1708.19140625 MB
+Execution time: 0.602581262588501 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1707.69921875 MB
+Memory usage after prediction: 1719.09375 MB
+Execution time: 0.9530282020568848 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1708.19140625 MB
+Memory usage after prediction: 1718.8984375 MB
+Execution time: 0.6052002906799316 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1719.09375 MB
+Memory usage after prediction: 1719.8359375 MB
+Execution time: 0.9133932590484619 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1719.92578125 MB
+Memory usage after prediction: 1719.8359375 MB
+Execution time: 0.6025600433349609 seconds
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 65.8%
+Memory usage before prediction: 1719.8359375 MB
+Memory usage after prediction: 1720.6171875 MB
+Execution time: 0.5913734436035156 seconds
+----- [ --- General Execution time for 60 files: 24.401407957077026 seconds --- ] -----
+----- [ --- Origin sum for Execution times: 38.783735990524285 seconds --- ] -----
