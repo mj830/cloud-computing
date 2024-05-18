@@ -2,9 +2,11 @@ import random
 import string
 import logging
 import psutil
+import ray
 
 from flask import Flask, request, g, render_template, redirect, url_for
 from future.moves import subprocess
+from werkzeug.utils import secure_filename
 
 import config
 from exts import db
@@ -40,10 +42,48 @@ with app.app_context():
 # 配置日志处理器
 app.logger.addHandler(file_handler)
 
+ray.init()
+
 @app.route('/')
 def hello_world():  # put application's code here
     logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
     return render_template("add-dream.html")
+
+@ray.remote
+def process_audio_file(file_data, filename):
+    random_string = generate_random_string(12)
+    input_file = os.path.join("static/audio", filename + "+" + random_string)
+    output_file = input_file + ".wav"
+
+    # Save the uploaded file
+    with open(input_file, 'wb') as f:
+        f.write(file_data)
+
+    # Convert .webm file to .wav file
+    convert_webm_to_wav(input_file, output_file)
+
+    start_time = time.time()
+    cpu_before = psutil.cpu_percent(interval=None)
+    memory_before = psutil.virtual_memory().used / (1024 * 1024)  # Convert to MB
+
+    # Predict emotion using predict function
+    predicted_labels = predict(output_file)
+
+    cpu_after = psutil.cpu_percent(interval=None)
+    memory_after = psutil.virtual_memory().used / (1024 * 1024)  # Convert to MB
+
+    execution_time = time.time() - start_time
+
+    tag = predicted_labels[0]  # Assuming we only care about the first prediction result
+
+    dream = DreamModel(audio=filename, tag=tag, run_time=execution_time)
+
+    # Clean up files
+    os.remove(input_file)
+    os.remove(output_file)
+
+    return dream, execution_time, cpu_before, cpu_after, memory_before, memory_after
+
 
 @app.route('/upload_audio', methods=['POST'])
 def upload_audio():
@@ -60,43 +100,19 @@ def upload_audio():
     number = len(audio_files)
     print(number)
 
-    for audio_file in audio_files:
-        print(audio_file)
+    # Prepare files for processing
+    file_data_list = [(audio_file.read(), secure_filename(audio_file.filename)) for audio_file in audio_files]
 
-        filename = audio_file.filename
-        random_string = generate_random_string(12)
-        input_file = "static/audio/" + filename + "+" + random_string
-        output_file = "static/audio/" + filename + "+" + random_string +".wav"
+    # Parallel processing using Ray
+    futures = [process_audio_file.remote(file_data, filename) for file_data, filename in file_data_list]
+    results = ray.get(futures)
 
-        audio_file.save(input_file)
-
-        # 将.webm文件转换为.wav文件
-        convert_webm_to_wav(input_file, output_file)
-
-        start_time = time.time()  # 开始计时
-        # 记录预测开始时的CPU利用率
-        cpu_before = psutil.cpu_percent(interval=None)
-        memory_before = psutil.virtual_memory().used / (1024 * 1024)  # 将内存使用量转换为MB
-
-        # 使用ser.py的predict方法获取情绪标签
-        predicted_labels = predict(output_file)
-
-        # 记录预测结束时的CPU利用率
-        cpu_after = psutil.cpu_percent(interval=None)
-        memory_after = psutil.virtual_memory().used / (1024 * 1024)  # 将内存使用量转换为MB
-
+    for dream, execution_time, cpu_before, cpu_after, memory_before, memory_after in results:
         app.logger.info(f"CPU utilization before prediction: {cpu_before}%")
         app.logger.info(f"CPU utilization after prediction: {cpu_after}%")
         app.logger.info(f"Memory usage before prediction: {memory_before} MB")
         app.logger.info(f"Memory usage after prediction: {memory_after} MB")
-
-        end_time = time.time()  # 结束计时
-        execution_time = end_time - start_time
-        app.logger.info(f"Execution time: {execution_time} seconds")  # 记录性能
-
-        tag = predicted_labels[0]  # 假设我们只关心第1个预测结果
-
-        dream = DreamModel(audio=filename, tag=tag, run_time=execution_time)
+        app.logger.info(f"Execution time: {execution_time} seconds")
         db.session.add(dream)
 
     # 记录整体结束时间
