@@ -83,7 +83,7 @@ platformdirs==4.2.0
 pooch==1.8.1
 protobuf==3.20.1
 psutil==5.9.8
-pybald-routes==2.11
+#pybald-routes==2.1
 pycparser==2.22
 pycryptodome==3.19.0
 pygments==2.17.2

@@ -42,6 +42,7 @@ app.logger.addHandler(file_handler)
 
 @app.route('/')
 def hello_world():  # put application's code here
+    print("test")
     logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
     return render_template("add-dream.html")
 
@@ -54,6 +55,7 @@ def upload_audio():
     if not audio_files:
         return 'No file is uploaded', 400
 
+    print("开始记录整体时间")
     # 记录整体开始时间
     start_time_general = time.time()
 
@@ -156,7 +158,7 @@ def clear_folder(folder_path):
             app.logger.error(f"Failed to delete {file_path}. Reason: {e}")  # 记录错误
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
 
 
 

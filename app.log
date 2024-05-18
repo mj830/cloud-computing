@@ -1,0 +1,47 @@
+CPU utilization before prediction: 0.0%
+CPU utilization after prediction: 53.2%
+Memory usage before prediction: 523.140625 MB
+Memory usage after prediction: 585.8515625 MB
+Execution time: 2.0541365146636963 seconds
+CPU utilization before prediction: 62.5%
+CPU utilization after prediction: 64.4%
+Memory usage before prediction: 587.51171875 MB
+Memory usage after prediction: 604.91796875 MB
+Execution time: 0.5174703598022461 seconds
+CPU utilization before prediction: 55.6%
+CPU utilization after prediction: 60.0%
+Memory usage before prediction: 606.34765625 MB
+Memory usage after prediction: 615.12109375 MB
+Execution time: 0.5561933517456055 seconds
+CPU utilization before prediction: 50.0%
+CPU utilization after prediction: 63.6%
+Memory usage before prediction: 616.40234375 MB
+Memory usage after prediction: 625.75390625 MB
+Execution time: 0.5005803108215332 seconds
+CPU utilization before prediction: 75.0%
+CPU utilization after prediction: 64.6%
+Memory usage before prediction: 626.7890625 MB
+Memory usage after prediction: 642.50390625 MB
+Execution time: 0.49043893814086914 seconds
+CPU utilization before prediction: 50.0%
+CPU utilization after prediction: 59.0%
+Memory usage before prediction: 644.27734375 MB
+Memory usage after prediction: 652.58203125 MB
+Execution time: 0.5268776416778564 seconds
+CPU utilization before prediction: 66.7%
+CPU utilization after prediction: 59.0%
+Memory usage before prediction: 654.69921875 MB
+Memory usage after prediction: 662.4921875 MB
+Execution time: 0.5262947082519531 seconds
+CPU utilization before prediction: 57.1%
+CPU utilization after prediction: 64.3%
+Memory usage before prediction: 664.90625 MB
+Memory usage after prediction: 666.796875 MB
+Execution time: 0.5024638175964355 seconds
+----- [ --- General Execution time for 8 files: 5.9262471199035645 seconds --- ] -----
+CPU utilization before prediction: 0.2%
+CPU utilization after prediction: 64.5%
+Memory usage before prediction: 677.40625 MB
+Memory usage after prediction: 690.3671875 MB
+Execution time: 0.5537607669830322 seconds
+----- [ --- General Execution time for 1 files: 0.6120767593383789 seconds --- ] -----
