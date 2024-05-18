@@ -19,7 +19,6 @@ import shutil
 from logging.handlers import RotatingFileHandler
 
 from sqlalchemy import func
-
 # 配置日志记录器
 # logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 file_handler = RotatingFileHandler(filename='app.log', maxBytes=10000, backupCount=1)
@@ -48,6 +47,7 @@ ray.init()
 
 @app.route('/')
 def hello_world():  # put application's code here
+    print("test")
     logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
     return render_template("add-dream.html")
 
@@ -96,6 +96,7 @@ def upload_audio():
     if not audio_files:
         return 'No file is uploaded', 400
 
+    print("开始记录整体时间")
     # 记录整体开始时间
     start_time_general = time.time()
 
@@ -125,7 +126,7 @@ def upload_audio():
     db.session.commit()
 
     total_run_time = db.session.query(func.sum(DreamModel.run_time)).scalar()
-    app.logger.info(f"----- [ --- Origin sum for Execution times: {total_run_time} seconds --- ] -----")  # 记录性能
+    app.logger.info(f"----- [ --- Origin sum for Execution times: {total_run_time} seconds --- ] -----")  # 记录初始总时间
 
     folder_to_clear = 'static/audio'
     clear_folder(folder_to_clear)
@@ -177,7 +178,7 @@ def clear_folder(folder_path):
             app.logger.error(f"Failed to delete {file_path}. Reason: {e}")  # 记录错误
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
 
 
 
