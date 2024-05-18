@@ -63,6 +63,8 @@ def process_audio_file(file_data, filename):
 
     # 获取 GPU 信息
     gpus = GPUtil.getGPUs()
+    gpu_before_save = 0
+    gpu_memory_before_save = 0
     if gpus:
         gpu_before_save = gpus[0].load * 100
         gpu_memory_before_save = gpus[0].memoryUsed
@@ -79,6 +81,8 @@ def process_audio_file(file_data, filename):
 
     # 获取 GPU 信息
     gpus = GPUtil.getGPUs()
+    gpu_after_save = 0
+    gpu_memory_after_save = 0
     if gpus:
         gpu_after_save = gpus[0].load * 100
         gpu_memory_after_save = gpus[0].memoryUsed
@@ -89,6 +93,8 @@ def process_audio_file(file_data, filename):
 
     # 获取 GPU 信息
     gpus = GPUtil.getGPUs()
+    gpu_before = 0
+    gpu_memory_before = 0
     if gpus:
         gpu_before = gpus[0].load * 100
         gpu_memory_before = gpus[0].memoryUsed
@@ -107,6 +113,8 @@ def process_audio_file(file_data, filename):
 
     # 获取 GPU 信息
     gpus = GPUtil.getGPUs()
+    gpu_after = 0
+    gpu_memory_after = 0
     if gpus:
         gpu_after = gpus[0].load * 100
         gpu_memory_after = gpus[0].memoryUsed
