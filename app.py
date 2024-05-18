@@ -168,6 +168,10 @@ def upload_audio():
     number = len(audio_files)
     print(number)
 
+    memory_before_upload = psutil.virtual_memory().used / (1024 * 1024)  # 将内存使用量转换为MB
+    # 获取磁盘存储容量信息
+    disk_usage_before_upload = psutil.disk_usage('/')
+
     # Prepare files for processing
     file_data_list = [(audio_file.read(), secure_filename(audio_file.filename)) for audio_file in audio_files]
 
@@ -215,6 +219,20 @@ def upload_audio():
     app.logger.info(f"----- [ --- General Execution time for {number} files: {execution_time_general} seconds --- ] -----")  # 记录性能
 
     db.session.commit()
+
+    memory_after_upload = psutil.virtual_memory().used / (1024 * 1024)  # 将内存使用量转换为MB
+    memory_diff_upload = memory_after_upload - memory_before_upload
+    app.logger.info(f"Memory usage difference (Upload audio): {memory_diff_upload} MB")
+
+    # 获取磁盘存储容量信息
+    disk_usage_after_upload = psutil.disk_usage('/')
+    # 计算磁盘存储容量差异
+    total_diff_upload = disk_usage_after_upload.total - disk_usage_before_upload.total
+    used_diff_upload = disk_usage_after_upload.used - disk_usage_before_upload.used
+    free_diff_upload = disk_usage_after_upload.free - disk_usage_before_upload.free
+    percent_diff_upload = disk_usage_after_upload.percent - disk_usage_before_upload.percent
+    app.logger.info(
+        f"Disk usage difference (Upload audio)- total: {total_diff_upload} bytes, used: {used_diff_upload} bytes, free: {free_diff_upload} bytes, percent: {percent_diff_upload}%")
 
     total_run_time = db.session.query(func.sum(DreamModel.run_time)).scalar()
     app.logger.info(f"----- [ --- Origin sum for Execution times: {total_run_time} seconds --- ] -----")  # 记录初始总时间
