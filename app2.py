@@ -4,6 +4,10 @@ import logging
 import psutil
 import GPUtil
 
+import matplotlib
+matplotlib.use('Agg')  # 使用 Agg 后端
+import matplotlib.pyplot as plt
+
 from flask import Flask, request, g, render_template, redirect, url_for
 from future.moves import subprocess
 
@@ -67,8 +71,22 @@ def upload_audio():
     # 获取磁盘存储容量信息
     disk_usage_before_upload = psutil.disk_usage('/')
 
+    # 初始化数据收集
+    cpu_utilization_save = []
+    gpu_utilization_save = []
+    cpu_utilization_predict = []
+    gpu_utilization_predict = []
+    gpu_memory_usage_save = []
+    gpu_memory_usage_predict = []
+    disk_io_stats = []
+    disk_io_stats_save = []
+    execution_times = []
+
     for audio_file in audio_files:
         print(audio_file)
+
+        # 获取磁盘 I/O 信息
+        disk_io_before_save = psutil.disk_io_counters()
 
         filename = audio_file.filename
         random_string = generate_random_string(12)
@@ -105,6 +123,24 @@ def upload_audio():
             app.logger.info(f"GPU memory usage before save: {gpu_memory_before_save} MB")
             app.logger.info(f"GPU memory usage after save: {gpu_memory_after_save} MB")
 
+        # 可视化CPU，GPU
+        cpu_utilization_save.append((cpu_before_save, cpu_after_save))
+        if gpus:
+            gpu_utilization_save.append((gpu_before_save, gpu_after_save))
+            gpu_memory_usage_save.append((gpu_memory_before_save, gpu_memory_after_save))
+
+        # 获取磁盘 I/O 信息
+        disk_io_after_save = psutil.disk_io_counters()
+
+        # 计算磁盘 I/O 差异
+        read_bytes_diff_save = disk_io_after_save.read_bytes - disk_io_before_save.read_bytes
+        write_bytes_diff_save = disk_io_after_save.write_bytes - disk_io_before_save.write_bytes
+
+        # 可视化disk io
+        disk_io_stats_save.append((read_bytes_diff_save, write_bytes_diff_save))
+
+
+        ### 预测阶段
         # 记录预测开始时的CPU利用率
         cpu_before = psutil.cpu_percent(interval=None)
         memory_before = psutil.virtual_memory().used / (1024 * 1024)  # 将内存使用量转换为MB
@@ -135,6 +171,12 @@ def upload_audio():
             gpu_after = gpus[0].load * 100
             gpu_memory_after = gpus[0].memoryUsed
 
+        # 可视化预测后CPU，GPU
+        cpu_utilization_predict.append((cpu_before, cpu_after))
+        if gpus:
+            gpu_utilization_predict.append((gpu_before, gpu_after))
+            gpu_memory_usage_predict.append((gpu_memory_before, gpu_memory_after))
+
         # 获取磁盘 I/O 信息
         disk_io_after = psutil.disk_io_counters()
         # 获取磁盘存储容量信息
@@ -147,6 +189,9 @@ def upload_audio():
         write_bytes_diff = disk_io_after.write_bytes - disk_io_before.write_bytes
         read_time_diff = disk_io_after.read_time - disk_io_before.read_time
         write_time_diff = disk_io_after.write_time - disk_io_before.write_time
+
+        # 可视化disk io
+        disk_io_stats.append((read_bytes_diff, write_bytes_diff))
 
         # 计算磁盘存储容量差异
         total_diff = disk_usage_after.total - disk_usage_before.total
@@ -179,6 +224,8 @@ def upload_audio():
             f"Disk usage difference - total: {total_diff} bytes, used: {used_diff} bytes, free: {free_diff} bytes, percent: {percent_diff}%")
 
         execution_time = end_time - start_time
+        # 可视化执行时间
+        execution_times.append(execution_time)
         app.logger.info(f"Execution time: {execution_time} seconds")  # 记录性能
 
         tag = predicted_labels[0]  # 假设我们只关心第1个预测结果
@@ -188,6 +235,7 @@ def upload_audio():
 
     # 记录整体结束时间
     end_time_general = time.time()  # 结束计时
+    # 可视化execution time
     execution_time_general = end_time_general - start_time_general
     app.logger.info(f"----- [ --- General Execution time for {number} files: {execution_time_general} seconds --- ] -----")  # 记录性能
 
@@ -212,6 +260,9 @@ def upload_audio():
 
     folder_to_clear = 'static/audio'
     clear_folder(folder_to_clear)
+
+    # 可视化图表
+    generate_plots(cpu_utilization_save, gpu_utilization_save, cpu_utilization_predict, gpu_utilization_predict, gpu_memory_usage_save, gpu_memory_usage_predict, disk_io_stats_save, disk_io_stats, execution_times)
 
     return redirect(url_for("my_dream"))
 
@@ -258,6 +309,112 @@ def clear_folder(folder_path):
                 shutil.rmtree(file_path)
         except Exception as e:
             app.logger.error(f"Failed to delete {file_path}. Reason: {e}")  # 记录错误
+
+
+def generate_plots(cpu_utilization_save, gpu_utilization_save, cpu_utilization_predict, gpu_utilization_predict, gpu_memory_usage_save, gpu_memory_usage_predict, disk_io_stats_save, disk_io_stats, execution_times):
+    # CPU Utilization Plot
+    plt.figure()
+    plt.plot([x[0] for x in cpu_utilization_save], label='Before Save')
+    plt.plot([x[1] for x in cpu_utilization_save], label='After Save')
+    plt.xlabel('File Index')
+    plt.ylabel('CPU Utilization (%)')
+    plt.title('CPU Utilization Before and After Save')
+    plt.legend()
+    plt.savefig('static/plots/cpu_utilization_save.png')
+
+    # CPU Prediction Utilization Plot
+    plt.figure()
+    plt.plot([x[0] for x in cpu_utilization_predict], label='Before Predict')
+    plt.plot([x[1] for x in cpu_utilization_predict], label='After Predict')
+    plt.xlabel('File Index')
+    plt.ylabel('CPU Utilization (%)')
+    plt.title('CPU Utilization Before and After Predict')
+    plt.legend()
+    plt.savefig('static/plots/cpu_utilization_predict.png')
+
+    # GPU Utilization Plot
+    if gpu_utilization_save:
+        plt.figure()
+        plt.plot([x[0] for x in gpu_utilization_save], label='Before Save')
+        plt.plot([x[1] for x in gpu_utilization_save], label='After Save')
+        plt.xlabel('File Index')
+        plt.ylabel('GPU Utilization (%)')
+        plt.title('GPU Utilization Before and After Save')
+        plt.legend()
+        plt.savefig('static/plots/gpu_utilization_save.png')
+
+    # GPU Predict Utilization Plot
+    if gpu_utilization_predict:
+        plt.figure()
+        plt.plot([x[0] for x in gpu_utilization_save], label='Before Predict')
+        plt.plot([x[1] for x in gpu_utilization_save], label='After Predict')
+        plt.xlabel('File Index')
+        plt.ylabel('GPU Utilization (%)')
+        plt.title('GPU Utilization Before and After Predict')
+        plt.legend()
+        plt.savefig('static/plots/gpu_utilization_predict.png')
+
+    # Memory Usage Plot
+    if gpu_memory_usage_save:
+        plt.figure()
+        plt.plot([x[0] for x in gpu_memory_usage_save], label='Before Save')
+        plt.plot([x[1] for x in gpu_memory_usage_save], label='After Save')
+        plt.xlabel('File Index')
+        plt.ylabel('Memory Usage (MB)')
+        plt.title('GPU Memory Usage Before and After Save')
+        plt.legend()
+        plt.savefig('static/plots/gpu_memory_usage_save.png')
+
+    # Memory Usage Plot
+    if gpu_memory_usage_predict:
+        plt.figure()
+        plt.plot([x[0] for x in gpu_memory_usage_save], label='Before Predict')
+        plt.plot([x[1] for x in gpu_memory_usage_save], label='After Predict')
+        plt.xlabel('File Index')
+        plt.ylabel('Memory Usage (MB)')
+        plt.title('GPU Memory Usage Before and After Predict')
+        plt.legend()
+        plt.savefig('static/plots/gpu_memory_usage_predict.png')
+
+    # Disk I/O Plot save
+    plt.figure()
+    read_bytes = [x[0] for x in disk_io_stats_save]
+    write_bytes = [x[1] for x in disk_io_stats]
+    plt.bar(range(len(disk_io_stats_save)), read_bytes, label='Read Bytes')
+    plt.bar(range(len(disk_io_stats_save)), write_bytes, label='Write Bytes', bottom=read_bytes)
+    plt.xlabel('File Index')
+    plt.ylabel('Bytes')
+    plt.title('Disk I/O Bytes Read and Written (Save)')
+    plt.legend()
+    plt.savefig('static/plots/disk_io_save.png')
+
+    # Disk I/O Plot
+    plt.figure()
+    read_bytes = [x[0] for x in disk_io_stats]
+    write_bytes = [x[1] for x in disk_io_stats]
+    plt.bar(range(len(disk_io_stats)), read_bytes, label='Read Bytes')
+    plt.bar(range(len(disk_io_stats)), write_bytes, label='Write Bytes', bottom=read_bytes)
+    plt.xlabel('File Index')
+    plt.ylabel('Bytes')
+    plt.title('Disk I/O Bytes Read and Written')
+    plt.legend()
+    plt.savefig('static/plots/disk_io_predict.png')
+
+    # Execution Times Plot
+    plt.figure()
+    plt.plot(execution_times, marker='o')
+    plt.xlabel('File Index')
+    plt.ylabel('Execution Time (s)')
+    plt.title('Execution Time for Each Audio File')
+    plt.savefig('static/plots/execution_times.png')
+
+    # 总执行时间图
+    plt.figure()
+    plt.bar(['Total Execution Time'], [sum(execution_times)])
+    plt.ylabel('Total Execution Time (s)')
+    plt.title('Total Execution Time for All Files')
+    plt.savefig('static/plots/total_execution_time.png')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
