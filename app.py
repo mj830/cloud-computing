@@ -24,6 +24,12 @@ import shutil
 from logging.handlers import RotatingFileHandler
 
 from sqlalchemy import func
+
+# # 获取当前进程
+# p = psutil.Process(os.getpid())
+# # 设置 CPU 亲和性，只使用 CPU 核心 0 和 1
+# p.cpu_affinity([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+
 # 配置日志记录器
 # logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 file_handler = RotatingFileHandler(filename='app.log', maxBytes=10000, backupCount=1)
@@ -373,36 +379,36 @@ def generate_plots(cpu_utilization_save, gpu_utilization_save, cpu_utilization_p
     print(len(cpu_utilization_save), len(cpu_utilization_predict))
     print([x[0] for x in cpu_utilization_save])
 
-    i = 0
-    while i < cpu_count:
+    # i = 0
+    # while i < cpu_count:
 
-        # CPU Utilization Plot
-        plt.figure()
-        # plt.plot([x[0] for x in cpu_utilization_save[i::cpu_count]], label='Before Save')
-        # plt.plot([x[1] for x in cpu_utilization_save[i::cpu_count]], label='After Save')
-        plt.plot(range(len(cpu_utilization_save[i::cpu_count])), [x[0] for x in cpu_utilization_save[i::cpu_count]],
-                 label='Before Save')
-        plt.plot(range(len(cpu_utilization_save[i::cpu_count])), [x[1] for x in cpu_utilization_save[i::cpu_count]],
-                 label='After Save')
-        plt.xlabel('File Index')
-        plt.ylabel('CPU Utilization (%)')
-        plt.title('CPU Utilization Before and After Save' + '(' + str(i+1) + ')')
-        plt.legend()
-        plt.savefig('static/plots/cpu_utilization_save' + '(' + str(i+1) + ').png')
-        plt.close()
+    # CPU Utilization Plot
+    plt.figure()
+    # plt.plot([x[0] for x in cpu_utilization_save[i::cpu_count]], label='Before Save')
+    # plt.plot([x[1] for x in cpu_utilization_save[i::cpu_count]], label='After Save')
+    plt.plot(range(len(cpu_utilization_save)), [x[0] for x in cpu_utilization_save],
+             label='Before Save')
+    plt.plot(range(len(cpu_utilization_save)), [x[1] for x in cpu_utilization_save],
+             label='After Save')
+    plt.xlabel('File Index')
+    plt.ylabel('CPU Utilization (%)')
+    plt.title('CPU Utilization Before and After Save')
+    plt.legend()
+    plt.savefig('static/plots/cpu_utilization_save.png')
+    plt.close()
 
-        # CPU Prediction Utilization Plot
-        plt.figure()
-        plt.plot([x[0] for x in cpu_utilization_predict[i::cpu_count]], label='Before Predict')
-        plt.plot([x[1] for x in cpu_utilization_predict[i::cpu_count]], label='After Predict')
-        plt.xlabel('File Index')
-        plt.ylabel('CPU Utilization (%)')
-        plt.title('CPU Utilization Before and After Predict' + '(' + str(i+1) + ')')
-        plt.legend()
-        plt.savefig('static/plots/cpu_utilization_predict' + '(' + str(i+1) + ').png')
-        plt.close()
+    # CPU Prediction Utilization Plot
+    plt.figure()
+    plt.plot([x[0] for x in cpu_utilization_predict], label='Before Predict')
+    plt.plot([x[1] for x in cpu_utilization_predict], label='After Predict')
+    plt.xlabel('File Index')
+    plt.ylabel('CPU Utilization (%)')
+    plt.title('CPU Utilization Before and After Predict')
+    plt.legend()
+    plt.savefig('static/plots/cpu_utilization_predict.png')
+    plt.close()
 
-        i += 1
+        # i += 1
 
     # GPU Utilization Plot
     if gpu_utilization_save:
