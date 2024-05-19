@@ -1,74 +1,93 @@
 Disk I/O difference - read_count: 0, write_count: 0, read_bytes: 0, write_bytes: 0, read_time: 0, write_time: 0
-Disk usage before prediction: total=42869960704 bytes, used=6296756224 bytes, free=36573204480 bytes, percent=14.7%
-Disk usage after prediction: total=42869960704 bytes, used=6296756224 bytes, free=36573204480 bytes, percent=14.7%
-Disk usage difference - total: 0 bytes, used: 0 bytes, free: 0 bytes, percent: 0.0%
-Execution time: 0.5380842685699463 seconds
-CPU utilization before save: 62.5%
-CPU utilization after save: 53.8%
-CPU utilization before prediction: 50.0%
-CPU utilization after prediction: 62.8%
-Memory usage before prediction: 756.56640625 MB
-Memory usage after prediction: 766.51171875 MB
-Disk I/O before prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
-Disk I/O after prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
+Disk usage before prediction: total=42869960704 bytes, used=6233489408 bytes, free=36636471296 bytes, percent=14.5%
+Disk usage after prediction: total=42869960704 bytes, used=6233980928 bytes, free=36635979776 bytes, percent=14.5%
+Disk usage difference - total: 0 bytes, used: 491520 bytes, free: -491520 bytes, percent: 0.0%
+Execution time: 0.5734503269195557 seconds
+CPU utilization before save: 100.0%
+CPU utilization after save: 100.0%
+GPU utilization before save: 0%
+GPU utilization after save: 0%
+GPU memory usage before save: 0 MB
+GPU memory usage after save: 0 MB
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1711.5703125 MB
+Memory usage after prediction: 1722.453125 MB
+GPU utilization before prediction: 0%
+GPU utilization after prediction: 0%
+GPU memory usage before prediction: 0 MB
+GPU memory usage after prediction: 0 MB
+Disk I/O before prediction: sdiskio(read_count=18840, write_count=171608, read_bytes=480995840, write_bytes=8306729472, read_time=30482, write_time=878172, read_merged_count=30, write_merged_count=60214, busy_time=280290)
+Disk I/O after prediction: sdiskio(read_count=18840, write_count=171608, read_bytes=480995840, write_bytes=8306729472, read_time=30482, write_time=878172, read_merged_count=30, write_merged_count=60214, busy_time=280290)
 Disk I/O difference - read_count: 0, write_count: 0, read_bytes: 0, write_bytes: 0, read_time: 0, write_time: 0
-Disk usage before prediction: total=42869960704 bytes, used=6297186304 bytes, free=36572774400 bytes, percent=14.7%
-Disk usage after prediction: total=42869960704 bytes, used=6297186304 bytes, free=36572774400 bytes, percent=14.7%
-Disk usage difference - total: 0 bytes, used: 0 bytes, free: 0 bytes, percent: 0.0%
-Execution time: 0.5440847873687744 seconds
-CPU utilization before save: 50.0%
-CPU utilization after save: 53.3%
-CPU utilization before prediction: 50.0%
-CPU utilization after prediction: 60.0%
-Memory usage before prediction: 768.68359375 MB
-Memory usage after prediction: 782.88671875 MB
-Disk I/O before prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
-Disk I/O after prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
+Disk usage before prediction: total=42869960704 bytes, used=6233620480 bytes, free=36636340224 bytes, percent=14.5%
+Disk usage after prediction: total=42869960704 bytes, used=6234472448 bytes, free=36635488256 bytes, percent=14.5%
+Disk usage difference - total: 0 bytes, used: 851968 bytes, free: -851968 bytes, percent: 0.0%
+Execution time: 0.6050727367401123 seconds
+CPU utilization before save: 100.0%
+CPU utilization after save: 100.0%
+GPU utilization before save: 0%
+GPU utilization after save: 0%
+GPU memory usage before save: 0 MB
+GPU memory usage after save: 0 MB
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1712.36328125 MB
+Memory usage after prediction: 1722.55078125 MB
+GPU utilization before prediction: 0%
+GPU utilization after prediction: 0%
+GPU memory usage before prediction: 0 MB
+GPU memory usage after prediction: 0 MB
+Disk I/O before prediction: sdiskio(read_count=18840, write_count=171608, read_bytes=480995840, write_bytes=8306729472, read_time=30482, write_time=878172, read_merged_count=30, write_merged_count=60214, busy_time=280290)
+Disk I/O after prediction: sdiskio(read_count=18840, write_count=171608, read_bytes=480995840, write_bytes=8306729472, read_time=30482, write_time=878172, read_merged_count=30, write_merged_count=60214, busy_time=280290)
 Disk I/O difference - read_count: 0, write_count: 0, read_bytes: 0, write_bytes: 0, read_time: 0, write_time: 0
-Disk usage before prediction: total=42869960704 bytes, used=6298116096 bytes, free=36571844608 bytes, percent=14.7%
-Disk usage after prediction: total=42869960704 bytes, used=6298116096 bytes, free=36571844608 bytes, percent=14.7%
-Disk usage difference - total: 0 bytes, used: 0 bytes, free: 0 bytes, percent: 0.0%
-Execution time: 0.6080868244171143 seconds
-CPU utilization before save: 50.0%
-CPU utilization after save: 57.1%
-CPU utilization before prediction: 50.0%
-CPU utilization after prediction: 60.8%
-Memory usage before prediction: 783.3359375 MB
-Memory usage after prediction: 786.984375 MB
-Disk I/O before prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
-Disk I/O after prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
+Disk usage before prediction: total=42869960704 bytes, used=6234472448 bytes, free=36635488256 bytes, percent=14.5%
+Disk usage after prediction: total=42869960704 bytes, used=6234288128 bytes, free=36635672576 bytes, percent=14.5%
+Disk usage difference - total: 0 bytes, used: -184320 bytes, free: 184320 bytes, percent: 0.0%
+Execution time: 0.6049113273620605 seconds
+CPU utilization before save: 100.0%
+CPU utilization after save: 100.0%
+GPU utilization before save: 0%
+GPU utilization after save: 0%
+GPU memory usage before save: 0 MB
+GPU memory usage after save: 0 MB
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 100.0%
+Memory usage before prediction: 1723.04296875 MB
+Memory usage after prediction: 1732.25390625 MB
+GPU utilization before prediction: 0%
+GPU utilization after prediction: 0%
+GPU memory usage before prediction: 0 MB
+GPU memory usage after prediction: 0 MB
+Disk I/O before prediction: sdiskio(read_count=18840, write_count=171608, read_bytes=480995840, write_bytes=8306729472, read_time=30482, write_time=878172, read_merged_count=30, write_merged_count=60214, busy_time=280290)
+Disk I/O after prediction: sdiskio(read_count=18840, write_count=171608, read_bytes=480995840, write_bytes=8306729472, read_time=30482, write_time=878172, read_merged_count=30, write_merged_count=60214, busy_time=280290)
 Disk I/O difference - read_count: 0, write_count: 0, read_bytes: 0, write_bytes: 0, read_time: 0, write_time: 0
-Disk usage before prediction: total=42869960704 bytes, used=6299045888 bytes, free=36570914816 bytes, percent=14.7%
-Disk usage after prediction: total=42869960704 bytes, used=6299045888 bytes, free=36570914816 bytes, percent=14.7%
-Disk usage difference - total: 0 bytes, used: 0 bytes, free: 0 bytes, percent: 0.0%
-Execution time: 0.5967566967010498 seconds
-CPU utilization before save: 50.0%
-CPU utilization after save: 53.8%
-CPU utilization before prediction: 50.0%
-CPU utilization after prediction: 61.0%
-Memory usage before prediction: 786.82421875 MB
-Memory usage after prediction: 789.2421875 MB
-Disk I/O before prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
-Disk I/O after prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
+Disk usage before prediction: total=42869960704 bytes, used=6234288128 bytes, free=36635672576 bytes, percent=14.5%
+Disk usage after prediction: total=42869960704 bytes, used=6234103808 bytes, free=36635856896 bytes, percent=14.5%
+Disk usage difference - total: 0 bytes, used: -184320 bytes, free: 184320 bytes, percent: 0.0%
+Execution time: 0.5840532779693604 seconds
+CPU utilization before save: 100.0%
+CPU utilization after save: 100.0%
+GPU utilization before save: 0%
+GPU utilization after save: 0%
+GPU memory usage before save: 0 MB
+GPU memory usage after save: 0 MB
+CPU utilization before prediction: 100.0%
+CPU utilization after prediction: 95.7%
+Memory usage before prediction: 1723.38671875 MB
+Memory usage after prediction: 1732.83984375 MB
+GPU utilization before prediction: 0%
+GPU utilization after prediction: 0%
+GPU memory usage before prediction: 0 MB
+GPU memory usage after prediction: 0 MB
+Disk I/O before prediction: sdiskio(read_count=18840, write_count=171608, read_bytes=480995840, write_bytes=8306729472, read_time=30482, write_time=878172, read_merged_count=30, write_merged_count=60214, busy_time=280290)
+Disk I/O after prediction: sdiskio(read_count=18840, write_count=171608, read_bytes=480995840, write_bytes=8306729472, read_time=30482, write_time=878172, read_merged_count=30, write_merged_count=60214, busy_time=280290)
 Disk I/O difference - read_count: 0, write_count: 0, read_bytes: 0, write_bytes: 0, read_time: 0, write_time: 0
-Disk usage before prediction: total=42869960704 bytes, used=6299791360 bytes, free=36570169344 bytes, percent=14.7%
-Disk usage after prediction: total=42869960704 bytes, used=6299791360 bytes, free=36570169344 bytes, percent=14.7%
-Disk usage difference - total: 0 bytes, used: 0 bytes, free: 0 bytes, percent: 0.0%
-Execution time: 0.5794405937194824 seconds
-CPU utilization before save: 60.0%
-CPU utilization after save: 53.8%
-CPU utilization before prediction: 50.0%
-CPU utilization after prediction: 60.7%
-Memory usage before prediction: 791.10546875 MB
-Memory usage after prediction: 762.1328125 MB
-Disk I/O before prediction: sdiskio(read_count=18838, write_count=170387, read_bytes=480975360, write_bytes=8277316096, read_time=30480, write_time=876317, read_merged_count=30, write_merged_count=60156, busy_time=278950)
-Disk I/O after prediction: sdiskio(read_count=18838, write_count=170404, read_bytes=480975360, write_bytes=8279663104, read_time=30480, write_time=876348, read_merged_count=30, write_merged_count=60156, busy_time=278960)
-Disk I/O difference - read_count: 0, write_count: 17, read_bytes: 0, write_bytes: 2347008, read_time: 0, write_time: 31
-Disk usage before prediction: total=42869960704 bytes, used=6300540928 bytes, free=36569419776 bytes, percent=14.7%
-Disk usage after prediction: total=42869960704 bytes, used=6300274688 bytes, free=36569686016 bytes, percent=14.7%
-Disk usage difference - total: 0 bytes, used: -266240 bytes, free: 266240 bytes, percent: 0.0%
-Execution time: 0.5833826065063477 seconds
------ [ --- General Execution time for 100 files: 74.38722109794617 seconds --- ] -----
-Memory usage difference (Upload audio): 220.3359375 MB
-Disk usage difference (Upload audio)- total: 0 bytes, used: 68055040 bytes, free: -68055040 bytes, percent: 0.1999999999999993%
------ [ --- Origin sum for Execution times: 59.4305899143219 seconds --- ] -----
+Disk usage before prediction: total=42869960704 bytes, used=6234103808 bytes, free=36635856896 bytes, percent=14.5%
+Disk usage after prediction: total=42869960704 bytes, used=6233358336 bytes, free=36636602368 bytes, percent=14.5%
+Disk usage difference - total: 0 bytes, used: -745472 bytes, free: 745472 bytes, percent: 0.0%
+Execution time: 0.5838611125946045 seconds
+----- [ --- General Execution time for 100 files: 39.87852096557617 seconds --- ] -----
+Memory usage difference (Upload audio): 872.22265625 MB
+Disk usage difference (Upload audio)- total: 0 bytes, used: 331776 bytes, free: -331776 bytes, percent: 0.0%
+----- [ --- Origin sum for Execution times: 62.53415656089782 seconds --- ] -----
